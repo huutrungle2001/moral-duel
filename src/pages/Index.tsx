@@ -6,6 +6,8 @@ import CaseCard from "@/components/CaseCard";
 import { mockCases } from "@/lib/mockData";
 import logicEmotionLight from "@/assets/logic-emotion-light.png";
 import logicEmotionDark from "@/assets/logic-emotion-dark.png";
+import missionBgLight from "@/assets/mission-bg-light.png";
+import missionBgDark from "@/assets/mission-bg-dark.png";
 
 const Index = () => {
   const trendingCases = mockCases.filter(c => c.isTrending);
@@ -82,45 +84,42 @@ const Index = () => {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="min-h-screen relative overflow-hidden flex items-end pb-16 md:pb-24">
         {/* Background Image - Light Mode */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat dark:hidden"
-          style={{ backgroundImage: `url(${logicEmotionLight})` }}
+          style={{ backgroundImage: `url(${missionBgLight})` }}
         >
-          <div className="absolute inset-0 bg-background/20 backdrop-blur-[1px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/40" />
         </div>
         
         {/* Background Image - Dark Mode */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden dark:block"
-          style={{ backgroundImage: `url(${logicEmotionDark})` }}
+          style={{ backgroundImage: `url(${missionBgDark})` }}
         >
-          <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50" />
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto text-center space-y-12">
-            <h2 className="text-5xl md:text-7xl font-display font-bold tracking-widest uppercase
-              text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-glow to-accent
-              drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] dark:drop-shadow-[0_4px_20px_rgba(0,0,0,1)]">
+        <div className="container mx-auto px-4 relative z-10 w-full">
+          <div className="max-w-5xl mx-auto text-center space-y-8 opacity-0 translate-y-8 animate-fade-in [animation-delay:200ms] [animation-fill-mode:forwards]">
+            <h2 className="text-4xl md:text-6xl font-display font-bold tracking-wide uppercase
+              text-primary dark:text-primary-glow
+              drop-shadow-[0_2px_20px_rgba(92,189,185,0.6)] dark:drop-shadow-[0_2px_30px_rgba(92,189,185,0.8)]">
               Our Mission
             </h2>
             
-            <div className="space-y-6 py-4">
+            <div className="space-y-6 py-4 bg-background/80 dark:bg-background/70 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-border/50 shadow-2xl">
               <p className="text-2xl md:text-4xl font-display font-bold leading-tight
-                text-foreground dark:text-white
-                drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_4px_20px_rgba(0,0,0,1)]">
-                Where <span className="text-primary dark:text-primary-glow drop-shadow-[0_0_24px_rgba(92,189,185,0.9)]">LOGIC</span> meets <span className="text-accent dark:text-accent drop-shadow-[0_0_24px_rgba(251,113,133,0.9)]">EMOTION</span>
+                text-foreground dark:text-foreground">
+                Where <span className="text-primary dark:text-primary-glow drop-shadow-[0_0_20px_rgba(92,189,185,0.8)]">LOGIC</span> meets <span className="text-accent dark:text-accent drop-shadow-[0_0_20px_rgba(251,113,133,0.8)]">EMOTION</span>
               </p>
-              <p className="text-xl md:text-2xl font-display font-semibold leading-relaxed 
-                text-foreground dark:text-white/95
-                drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_3px_16px_rgba(0,0,0,1)]">
+              <p className="text-lg md:text-xl font-display font-semibold leading-relaxed 
+                text-foreground/90 dark:text-foreground/95">
                 Where reasoning confronts empathy, and every voice shapes moral truth.
               </p>
-              <p className="text-lg md:text-xl font-display leading-relaxed 
-                text-foreground/90 dark:text-white/90
-                drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_2px_12px_rgba(0,0,0,1)]">
+              <p className="text-base md:text-lg font-display leading-relaxed 
+                text-muted-foreground dark:text-muted-foreground">
                 Think deeper. Debate smarter. Earn your influence.
               </p>
             </div>
