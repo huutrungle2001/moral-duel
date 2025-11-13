@@ -80,14 +80,24 @@ const Index = () => {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-16 bg-card/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl font-bold text-foreground">Our Mission</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Morality isn't black and white—it's reasoning, empathy, and consequences. We gamify philosophical debates, 
-              reward logic, and challenge perspectives. Join where your voice shapes the future of moral discourse.
-            </p>
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5" />
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-5xl mx-auto text-center space-y-8">
+            <h2 className="text-2xl md:text-3xl font-serif text-primary tracking-wider uppercase">
+              Our Mission
+            </h2>
+            <div className="space-y-6">
+              <p className="text-2xl md:text-4xl font-serif leading-relaxed text-foreground">
+                Where <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent font-bold">Logic</span> meets <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent font-bold">Emotion</span>.
+              </p>
+              <p className="text-xl md:text-2xl font-serif leading-relaxed text-foreground/90">
+                Where reasoning confronts empathy, and every voice shapes moral truth.
+              </p>
+              <p className="text-lg md:text-xl font-serif leading-relaxed text-muted-foreground italic">
+                Think deeper. Debate smarter. Earn your influence.
+              </p>
+            </div>
           </div>
         </div>
       </section>
