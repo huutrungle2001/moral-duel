@@ -113,7 +113,7 @@ const Index = () => {
       </section>
 
       {/* Mission Statement Banner */}
-      <section className="relative overflow-hidden py-20 md:py-32">
+      <section className="relative overflow-hidden py-16 md:py-24">
         {/* Gradient transition from previous section */}
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-muted/30 dark:from-background to-transparent z-0" />
         
@@ -133,37 +133,7 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-primary/10 dark:from-primary/5 to-transparent z-0" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-end">
-            {/* Left side - Logo space (kept empty as logo is in the banner) */}
-            <div className="hidden md:block md:w-1/2" />
-            
-            {/* Right side - Text Overlay */}
-            <div className="w-full md:w-1/2 space-y-6 text-center md:text-left md:pr-8">
-              <h2 className="text-2xl md:text-4xl font-bold tracking-wide uppercase
-                text-primary dark:text-primary-glow
-                drop-shadow-[0_2px_20px_rgba(92,189,185,0.6)]">
-                Our Mission
-              </h2>
-              
-              <h3 className="text-4xl md:text-6xl font-bold leading-[1.2]">
-                <span className="bg-gradient-to-r from-primary via-primary-glow to-accent dark:from-primary dark:via-primary-glow dark:to-accent bg-clip-text text-transparent drop-shadow-lg">
-                  Where LOGIC
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-primary via-primary-glow to-accent dark:from-primary dark:via-primary-glow dark:to-accent bg-clip-text text-transparent drop-shadow-lg">
-                  meets EMOTION
-                </span>
-              </h3>
-              
-              <p className="text-xl md:text-2xl font-semibold leading-relaxed text-foreground/90">
-                Where reasoning confronts empathy, and every voice shapes moral truth.
-              </p>
-              
-              <p className="text-lg md:text-xl leading-relaxed text-foreground/80">
-                Think deeper. Debate smarter. Earn your influence.
-              </p>
-            </div>
-          </div>
+          <div className="h-[400px] md:h-[500px]" />
         </div>
       </section>
 
