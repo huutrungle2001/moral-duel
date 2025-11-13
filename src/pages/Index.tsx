@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import CaseCard from "@/components/CaseCard";
 import { mockCases } from "@/lib/mockData";
+import logicEmotionImage from "@/assets/logic-emotion.png";
 
 const Index = () => {
   const trendingCases = mockCases.filter(c => c.isTrending);
@@ -80,21 +81,31 @@ const Index = () => {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-card/30 to-background">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5" />
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-5xl mx-auto text-center space-y-8">
-            <h2 className="text-2xl md:text-3xl font-serif text-primary tracking-wider uppercase">
+          <div className="max-w-5xl mx-auto text-center space-y-10">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-primary tracking-widest uppercase">
               Our Mission
             </h2>
+            
+            {/* Image */}
+            <div className="flex justify-center mb-8">
+              <img 
+                src={logicEmotionImage} 
+                alt="Logic and Emotion Balance" 
+                className="w-full max-w-md h-auto rounded-2xl shadow-2xl"
+              />
+            </div>
+            
             <div className="space-y-6">
-              <p className="text-2xl md:text-4xl font-serif leading-relaxed text-foreground">
-                Where <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent font-bold">Logic</span> meets <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent font-bold">Emotion</span>.
+              <p className="text-2xl md:text-4xl font-display font-bold leading-relaxed">
+                Where <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">LOGIC</span> meets <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">EMOTION</span>
               </p>
-              <p className="text-xl md:text-2xl font-serif leading-relaxed text-foreground/90">
+              <p className="text-xl md:text-2xl font-display font-medium leading-relaxed text-foreground/90">
                 Where reasoning confronts empathy, and every voice shapes moral truth.
               </p>
-              <p className="text-lg md:text-xl font-serif leading-relaxed text-muted-foreground italic">
+              <p className="text-lg md:text-xl font-display leading-relaxed text-muted-foreground">
                 Think deeper. Debate smarter. Earn your influence.
               </p>
             </div>
