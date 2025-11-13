@@ -33,11 +33,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-4">
               <img 
                 src={isDark ? logoLight : logoDark} 
                 alt="Moral Oracle" 
-                className="w-10 h-10" 
+                className="w-12 h-12 p-1" 
               />
               <span className="text-xl font-bold font-serif text-foreground hidden sm:inline">
                 Moral Oracle

@@ -22,7 +22,7 @@ const Index = () => {
               <span className="text-sm font-medium">Where Logic Meets Morality</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold leading-[1.2] tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-bold leading-[1.3] tracking-tight mb-2">
               <span className="bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent drop-shadow-lg">
                 Play to Think,
               </span>
@@ -30,8 +30,7 @@ const Index = () => {
               <span className="text-foreground drop-shadow-sm">Think to Earn</span>
             </h1>
             
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-[1.8]">
-              <Vote className="inline w-5 h-5 mr-2 text-primary" />
+            <p className="text-xl max-w-2xl mx-auto leading-[1.9] font-serif italic text-foreground/90">
               Explore moral dilemmas, vote on arguments, and earn rewards.
               <br />
               Your voice shapes the future of moral discourse.
@@ -39,13 +38,13 @@ const Index = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/discover">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground text-lg px-8 gap-2 shadow-lg">
+                <Button size="lg" variant="gradient" className="text-lg px-8 gap-2">
                   <Brain className="w-5 h-5" />
                   Join the vote now, show your intelligence!
                 </Button>
               </Link>
               <Link to="/create">
-                <Button size="lg" className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-accent-foreground text-lg px-8 gap-2 shadow-lg">
+                <Button size="lg" variant="gradientAccent" className="text-lg px-8 gap-2">
                   <Plus className="w-5 h-5" />
                   Create a Trend & Go Viral
                 </Button>
@@ -81,8 +80,9 @@ const Index = () => {
       </section>
 
       {/* Trending Cases */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-muted/30 dark:bg-gradient-to-b dark:from-background dark:via-muted/10 dark:to-background relative overflow-hidden">
+        <div className="absolute inset-0 dark:opacity-100 opacity-0" style={{ background: 'var(--gradient-galaxy)' }} />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
               <TrendingUp className="w-8 h-8 text-accent" />
