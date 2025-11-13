@@ -29,10 +29,9 @@ const leaderboardData: LeaderboardUser[] = [
 
 const Leaderboard = () => {
   useEffect(() => {
-    // Trigger confetti on page load
-    const duration = 3000;
+    // Trigger sparkle fireworks on page load
+    const duration = 5000;
     const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
     function randomInRange(min: number, max: number) {
       return Math.random() * (max - min) + min;
@@ -45,19 +44,53 @@ const Leaderboard = () => {
         return clearInterval(interval);
       }
 
-      const particleCount = 50 * (timeLeft / duration);
+      const particleCount = 3;
       
+      // Sparkle bursts from multiple points
       confetti({
-        ...defaults,
         particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.6 },
+        colors: ['#FFD700', '#FFA500', '#FF6347', '#87CEEB', '#9370DB'],
+        shapes: ['star'],
+        scalar: 1.2,
+        drift: 0,
+        gravity: 0.8,
+        ticks: 400,
+        startVelocity: 45
       });
       confetti({
-        ...defaults,
         particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.6 },
+        colors: ['#FFD700', '#FFA500', '#FF6347', '#87CEEB', '#9370DB'],
+        shapes: ['star'],
+        scalar: 1.2,
+        drift: 0,
+        gravity: 0.8,
+        ticks: 400,
+        startVelocity: 45
       });
-    }, 250);
+      
+      // Center burst
+      if (Math.random() < 0.3) {
+        confetti({
+          particleCount: 5,
+          angle: 90,
+          spread: 360,
+          origin: { x: 0.5, y: 0.5 },
+          colors: ['#FFD700', '#FFA500', '#FF6347'],
+          shapes: ['star', 'circle'],
+          scalar: 1.5,
+          drift: randomInRange(-0.5, 0.5),
+          gravity: 0.6,
+          ticks: 500,
+          startVelocity: 35
+        });
+      }
+    }, 150);
 
     return () => clearInterval(interval);
   }, []);
@@ -102,7 +135,7 @@ const Leaderboard = () => {
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-              <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+              <span className="text-foreground dark:bg-gradient-to-r dark:from-primary dark:to-primary-glow dark:bg-clip-text dark:text-transparent">
                 Leaderboard
               </span>
             </h1>

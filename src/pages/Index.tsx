@@ -17,7 +17,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
-        <div className="container mx-auto px-4 py-20 relative">
+        <div className="container mx-auto px-4 py-12 relative">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20">
               <Sparkles className="w-4 h-4" />
@@ -53,7 +53,7 @@ const Index = () => {
               </Link>
             </div>
 
-            <div className="pt-10 space-y-3">
+            <div className="pt-6 space-y-3">
               <div className="relative inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/40 dark:via-orange-950/40 dark:to-amber-950/40 border border-amber-200/60 dark:border-amber-800/60 shadow-[0_8px_30px_rgb(251,146,60,0.12)] dark:shadow-[0_8px_30px_rgb(251,146,60,0.25)] hover:shadow-[0_12px_40px_rgb(251,146,60,0.2)] dark:hover:shadow-[0_12px_40px_rgb(251,146,60,0.35)] transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm group">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-200/20 dark:via-amber-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl" />
                 
@@ -139,18 +139,16 @@ const Index = () => {
             </div>
             <Link to="/discover">
               <Button variant="ghost" className="gap-2">
-                View All
+                View More
                 <span className="text-lg">→</span>
               </Button>
             </Link>
           </div>
 
           <div className="relative">
-            <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {trendingCases.map((caseData) => (
-                <div key={caseData.id} className="flex-none w-[350px] snap-start">
-                  <CaseCard caseData={caseData} />
-                </div>
+                <CaseCard key={caseData.id} caseData={caseData} />
               ))}
             </div>
           </div>
