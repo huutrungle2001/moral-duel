@@ -280,25 +280,27 @@ const CaseDetail = () => {
             <Card className="p-8 relative overflow-hidden bg-background/95 backdrop-blur-sm
               border-2 border-destructive/40
               dark:border-destructive/50
-              shadow-[0_8px_30px_rgba(239,68,68,0.3),0_4px_15px_rgba(239,68,68,0.2)]
-              dark:shadow-[0_10px_40px_rgba(239,68,68,0.4),0_5px_20px_rgba(239,68,68,0.25)]">
-              {/* Animated fire gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-destructive/20 via-orange-500/20 to-yellow-500/20 opacity-40 animate-pulse" />
-              <div className="absolute inset-0 bg-gradient-duel opacity-15" />
+              shadow-[0_8px_30px_rgba(239,68,68,0.3),0_4px_15px_rgba(239,68,68,0.2),0_0_60px_rgba(255,165,0,0.15)]
+              dark:shadow-[0_10px_40px_rgba(239,68,68,0.4),0_5px_20px_rgba(239,68,68,0.25),0_0_80px_rgba(255,165,0,0.2)]">
               
-              {/* Fire emojis decoration */}
-              <div className="absolute top-2 left-2 text-2xl opacity-60">🔥</div>
-              <div className="absolute top-2 right-2 text-2xl opacity-60">🔥</div>
-              <div className="absolute bottom-2 left-1/4 text-xl opacity-50">⚔️</div>
-              <div className="absolute bottom-2 right-1/4 text-xl opacity-50">💥</div>
+              {/* Layered fire effect backgrounds */}
+              <div className="absolute inset-0 bg-gradient-to-t from-orange-600/20 via-red-500/15 to-yellow-400/10 animate-[pulse_3s_ease-in-out_infinite]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/15 via-orange-500/20 to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-yellow-500/10 via-red-600/15 to-orange-400/10 animate-[pulse_5s_ease-in-out_infinite_1s]" />
+              
+              {/* Fire glow edges */}
+              <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-orange-500/20 to-transparent blur-xl" />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-red-500/20 to-transparent blur-xl" />
+              <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-orange-500/15 to-transparent blur-xl" />
+              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-red-500/15 to-transparent blur-xl" />
               
               <div className="relative z-10 space-y-6">
                 <div className="text-center">
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="text-2xl">🔥</span>
-                    <h2 className="text-3xl font-bold text-foreground font-serif">Battle Arena</h2>
-                    <span className="text-2xl">🔥</span>
-                  </div>
+                  <h2 className="text-3xl font-bold text-foreground font-serif mb-1 
+                    drop-shadow-[0_2px_8px_rgba(239,68,68,0.5)]
+                    dark:drop-shadow-[0_2px_10px_rgba(239,68,68,0.6)]">
+                    Battle Arena
+                  </h2>
                   <p className="text-sm text-muted-foreground font-semibold">Live debate intensity</p>
                 </div>
 
