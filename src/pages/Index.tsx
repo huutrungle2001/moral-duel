@@ -81,31 +81,34 @@ const Index = () => {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-card/30 to-background">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5" />
-        <div className="container mx-auto px-4 relative">
+      <section className="py-32 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${logicEmotionImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/60 backdrop-blur-[2px]" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center space-y-10">
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-primary tracking-widest uppercase">
+            <h2 className="text-3xl md:text-4xl font-display font-bold tracking-widest uppercase
+              text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-glow to-accent
+              drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               Our Mission
             </h2>
             
-            {/* Image */}
-            <div className="flex justify-center mb-8">
-              <img 
-                src={logicEmotionImage} 
-                alt="Logic and Emotion Balance" 
-                className="w-full max-w-md h-auto rounded-2xl shadow-2xl"
-              />
-            </div>
-            
-            <div className="space-y-6">
-              <p className="text-2xl md:text-4xl font-display font-bold leading-relaxed">
-                Where <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">LOGIC</span> meets <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">EMOTION</span>
+            <div className="space-y-8 py-8">
+              <p className="text-3xl md:text-5xl font-display font-bold leading-tight
+                drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+                Where <span className="text-primary drop-shadow-[0_0_20px_rgba(92,189,185,0.8)]">LOGIC</span> meets <span className="text-accent drop-shadow-[0_0_20px_rgba(251,113,133,0.8)]">EMOTION</span>
               </p>
-              <p className="text-xl md:text-2xl font-display font-medium leading-relaxed text-foreground/90">
+              <p className="text-xl md:text-3xl font-display font-semibold leading-relaxed text-foreground
+                drop-shadow-[0_3px_10px_rgba(0,0,0,0.9)]">
                 Where reasoning confronts empathy, and every voice shapes moral truth.
               </p>
-              <p className="text-lg md:text-xl font-display leading-relaxed text-muted-foreground">
+              <p className="text-lg md:text-2xl font-display leading-relaxed text-foreground/90
+                drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                 Think deeper. Debate smarter. Earn your influence.
               </p>
             </div>
