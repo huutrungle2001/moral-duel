@@ -49,9 +49,11 @@ const Discover = () => {
         </div>
 
         {/* Cases Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
           {sortedCases.map((caseData) => (
-            <CaseCard key={caseData.id} caseData={caseData} />
+            <div key={caseData.id} className="h-full">
+              <CaseCard caseData={caseData} />
+            </div>
           ))}
         </div>
 
