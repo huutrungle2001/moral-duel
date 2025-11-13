@@ -129,10 +129,10 @@ const Index = () => {
       </section>
 
       {/* Trending Cases */}
-      <section className="py-16 bg-muted/30 dark:bg-gradient-to-b dark:from-background dark:via-muted/10 dark:to-background relative overflow-hidden">
+      <section className="py-10 bg-muted/30 dark:bg-gradient-to-b dark:from-background dark:via-muted/10 dark:to-background relative overflow-hidden">
         <div className="absolute inset-0 dark:opacity-100 opacity-0" style={{ background: 'var(--gradient-galaxy)' }} />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
               <TrendingUp className="w-8 h-8 text-accent" />
               <h2 className="text-3xl font-bold text-foreground">Trending Duels</h2>
@@ -146,7 +146,7 @@ const Index = () => {
           </div>
 
           <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {trendingCases.map((caseData) => (
                 <CaseCard key={caseData.id} caseData={caseData} />
               ))}
@@ -156,10 +156,10 @@ const Index = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 to-primary-glow/10">
-        <div className="container mx-auto px-4 text-center space-y-8">
-          <h2 className="text-4xl font-bold text-foreground drop-shadow-sm">Ready to Challenge Your Thinking?</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+      <section className="py-16 bg-gradient-to-r from-primary/10 to-primary-glow/10">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-foreground drop-shadow-sm mb-6">Ready to Challenge Your Thinking?</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
             Join thousands of thinkers debating the toughest moral questions. Your brilliant perspective could earn you massive rewards!
           </p>
           <Link to="/discover">
