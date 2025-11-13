@@ -38,7 +38,7 @@ const Index = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/discover">
-                <Button size="lg" variant="gradient" className="text-lg px-8 gap-2">
+                <Button size="lg" variant="gradientAccent" className="text-lg px-8 gap-2">
                   <Brain className="w-5 h-5" />
                   Join the vote now, show your intelligence!
                 </Button>
