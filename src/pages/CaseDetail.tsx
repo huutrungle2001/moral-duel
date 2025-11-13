@@ -141,14 +141,13 @@ const CaseDetail = () => {
           shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(0,0,0,0.05)]
           dark:shadow-[0_6px_25px_rgba(225,179,130,0.15),0_3px_10px_rgba(225,179,130,0.1)]
           rounded-lg">
-          <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-            <span className="text-2xl">📋</span>
+          <h3 className="text-lg font-bold text-foreground mb-3">
             How to Vote - Complete 3 Steps:
           </h3>
           <div className="space-y-2 text-sm text-foreground/80">
             <div className="flex items-start gap-3">
-              <span className={`font-bold ${selectedSide ? 'text-primary' : 'text-muted-foreground'}`}>
-                {selectedSide ? '✅' : '1️⃣'}
+              <span className={`font-bold text-base ${selectedSide ? 'text-primary' : 'text-muted-foreground'}`}>
+                {selectedSide ? '✓' : '1'}
               </span>
               <span>
                 <strong className={selectedSide ? 'text-primary' : ''}>Vote YES or NO</strong>
@@ -156,8 +155,8 @@ const CaseDetail = () => {
               </span>
             </div>
             <div className="flex items-start gap-3">
-              <span className={`font-bold ${hasLiked ? 'text-primary' : 'text-muted-foreground'}`}>
-                {hasLiked ? '✅' : '2️⃣'}
+              <span className={`font-bold text-base ${hasLiked ? 'text-primary' : 'text-muted-foreground'}`}>
+                {hasLiked ? '✓' : '2'}
               </span>
               <span>
                 <strong className={hasLiked ? 'text-primary' : ''}>Like 3 arguments</strong> that you find most compelling 
@@ -166,8 +165,8 @@ const CaseDetail = () => {
               </span>
             </div>
             <div className="flex items-start gap-3">
-              <span className={`font-bold ${hasWrittenArgument ? 'text-primary' : 'text-muted-foreground'}`}>
-                {hasWrittenArgument ? '✅' : '3️⃣'}
+              <span className={`font-bold text-base ${hasWrittenArgument ? 'text-primary' : 'text-muted-foreground'}`}>
+                {hasWrittenArgument ? '✓' : '3'}
               </span>
               <span>
                 <strong className={hasWrittenArgument ? 'text-primary' : ''}>Write your argument</strong> explaining your vote (min 20 characters)
@@ -195,9 +194,8 @@ const CaseDetail = () => {
               <Card className="p-4 bg-background/95 backdrop-blur-sm border-2 border-yes/30 
                 shadow-[0_4px_15px_rgba(92,189,185,0.2)]
                 dark:shadow-[0_4px_15px_rgba(225,179,130,0.2)]">
-                <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <span className="text-lg">3️⃣</span>
-                  Share Your Reasoning
+                <h4 className="text-sm font-semibold text-foreground mb-3">
+                  Step 3: Share Your Reasoning
                 </h4>
                 <Textarea
                   placeholder="Explain why you voted YES (min 20 characters, max 300)..."
@@ -224,7 +222,7 @@ const CaseDetail = () => {
             {!hasLiked && selectedSide === "yes" && (
               <Card className="p-4 bg-muted/30 border-border/30">
                 <p className="text-sm text-muted-foreground text-center">
-                  👇 Like 3 arguments below to unlock the comment section
+                  Like 3 arguments below to unlock the comment section
                 </p>
               </Card>
             )}
@@ -239,7 +237,7 @@ const CaseDetail = () => {
             
             <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
               <p className="text-sm font-semibold text-accent">
-                💰 Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
+                Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
               </p>
             </div>
 
@@ -277,28 +275,18 @@ const CaseDetail = () => {
 
           {/* MIDDLE: Battle Stats */}
           <div className="flex flex-col justify-center">
-            <Card className="p-8 relative overflow-hidden bg-background/95 backdrop-blur-sm
-              border-2 border-destructive/40
-              dark:border-destructive/50
-              shadow-[0_8px_30px_rgba(239,68,68,0.3),0_4px_15px_rgba(239,68,68,0.2),0_0_60px_rgba(255,165,0,0.15)]
-              dark:shadow-[0_10px_40px_rgba(239,68,68,0.4),0_5px_20px_rgba(239,68,68,0.25),0_0_80px_rgba(255,165,0,0.2)]">
-              
-              {/* Layered fire effect backgrounds */}
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-600/20 via-red-500/15 to-yellow-400/10 animate-[pulse_3s_ease-in-out_infinite]" />
-              <div className="absolute inset-0 bg-gradient-to-br from-red-500/15 via-orange-500/20 to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-yellow-500/10 via-red-600/15 to-orange-400/10 animate-[pulse_5s_ease-in-out_infinite_1s]" />
-              
-              {/* Fire glow edges */}
-              <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-orange-500/20 to-transparent blur-xl" />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-red-500/20 to-transparent blur-xl" />
-              <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-orange-500/15 to-transparent blur-xl" />
-              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-red-500/15 to-transparent blur-xl" />
+            <Card className="p-8 relative overflow-hidden
+              bg-gradient-to-br from-background/95 via-background/98 to-background/95 backdrop-blur-sm
+              border-2 border-transparent
+              shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(0,0,0,0.05)]
+              dark:shadow-[0_6px_25px_rgba(225,179,130,0.15),0_3px_10px_rgba(225,179,130,0.1)]"
+              style={{
+                borderImage: 'linear-gradient(135deg, rgba(239, 68, 68, 0.6), rgba(255, 165, 0, 0.5), rgba(255, 215, 0, 0.4), rgba(239, 68, 68, 0.6)) 1',
+              }}>
               
               <div className="relative z-10 space-y-6">
                 <div className="text-center">
-                  <h2 className="text-3xl font-bold text-foreground font-serif mb-1 
-                    drop-shadow-[0_2px_8px_rgba(239,68,68,0.5)]
-                    dark:drop-shadow-[0_2px_10px_rgba(239,68,68,0.6)]">
+                  <h2 className="text-3xl font-bold text-foreground font-serif mb-1">
                     Battle Arena
                   </h2>
                   <p className="text-sm text-muted-foreground font-semibold">Live debate intensity</p>
@@ -307,8 +295,8 @@ const CaseDetail = () => {
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-bold text-yes-foreground flex items-center gap-1">
-                        <span className="text-lg">💚</span> YES
+                      <span className="text-sm font-bold text-yes-foreground">
+                        YES
                       </span>
                       <span className="text-2xl font-bold text-yes-foreground">{yesPercentage.toFixed(0)}%</span>
                     </div>
@@ -320,13 +308,13 @@ const CaseDetail = () => {
                   </div>
 
                   <div className="text-center py-2">
-                    <span className="text-4xl font-bold text-destructive drop-shadow-lg">⚔️ VS ⚔️</span>
+                    <span className="text-2xl font-bold text-destructive drop-shadow-lg">VS</span>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-bold text-no-foreground flex items-center gap-1">
-                        <span className="text-lg">❤️</span> NO
+                      <span className="text-sm font-bold text-no-foreground">
+                        NO
                       </span>
                       <span className="text-2xl font-bold text-no-foreground">{noPercentage.toFixed(0)}%</span>
                     </div>
@@ -339,7 +327,7 @@ const CaseDetail = () => {
                 </div>
 
                 <div className="text-center pt-4 border-t border-border/50">
-                  <p className="text-sm text-muted-foreground font-semibold">🎯 Total Warriors</p>
+                  <p className="text-sm text-muted-foreground font-semibold">Total Warriors</p>
                   <p className="text-3xl font-bold text-foreground">{totalVotes}</p>
                 </div>
               </div>
@@ -361,9 +349,8 @@ const CaseDetail = () => {
             {selectedSide === "no" && hasLiked && !hasVoted && (
               <Card className="p-4 bg-background/95 backdrop-blur-sm border-2 border-no/30
                 shadow-[0_4px_15px_rgba(239,68,68,0.2)]">
-                <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <span className="text-lg">3️⃣</span>
-                  Share Your Reasoning
+                <h4 className="text-sm font-semibold text-foreground mb-3">
+                  Step 3: Share Your Reasoning
                 </h4>
                 <Textarea
                   placeholder="Explain why you voted NO (min 20 characters, max 300)..."
@@ -390,7 +377,7 @@ const CaseDetail = () => {
             {!hasLiked && selectedSide === "no" && (
               <Card className="p-4 bg-muted/30 border-border/30">
                 <p className="text-sm text-muted-foreground text-center">
-                  👇 Like 3 arguments below to unlock the comment section
+                  Like 3 arguments below to unlock the comment section
                 </p>
               </Card>
             )}
@@ -405,7 +392,7 @@ const CaseDetail = () => {
             
             <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
               <p className="text-sm font-semibold text-accent">
-                💰 Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
+                Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
               </p>
             </div>
 
