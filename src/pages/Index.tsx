@@ -52,14 +52,28 @@ const Index = () => {
             </div>
 
             <div className="pt-10 space-y-3">
-              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30">
-                <Coins className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
-                <p className="text-foreground font-bold text-lg">
-                  Earn up to <span className="text-2xl text-yellow-600 dark:text-yellow-400">100,000 tokens</span> by choosing the winning side!
-                </p>
+              <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-yellow-400/30 via-orange-400/30 to-yellow-400/30 border-2 border-yellow-500/50 shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transition-all duration-300 animate-pulse hover:scale-105 backdrop-blur-sm">
+                <div className="relative">
+                  <Coins className="w-8 h-8 text-yellow-600 dark:text-yellow-400 animate-bounce" />
+                  <div className="absolute inset-0 w-8 h-8 bg-yellow-400 rounded-full blur-xl opacity-50 animate-pulse" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1">
+                  <p className="text-foreground font-bold text-base sm:text-lg">
+                    Earn up to
+                  </p>
+                  <div className="relative inline-block">
+                    <span className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(234,179,8,0.5)] animate-pulse">
+                      100,000 tokens
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 blur-2xl opacity-30 animate-pulse" />
+                  </div>
+                  <p className="text-foreground font-bold text-base sm:text-lg">
+                    by choosing the winning side!
+                  </p>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground">
-                🔥 Create trending cases to earn massive bonus rewards
+              <p className="text-sm text-muted-foreground animate-fade-in">
+                🔥 Create trending cases to earn <span className="font-bold text-primary">massive bonus rewards</span>
               </p>
             </div>
           </div>
