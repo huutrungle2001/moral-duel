@@ -127,16 +127,16 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
             {/* Left side - Logo Symbol */}
-            <div className="w-full md:w-1/2 flex justify-center md:justify-start">
+            <div className="w-full md:w-1/2 flex items-center justify-center">
               <img 
                 src={logicEmotionLight} 
                 alt="Logic meets Emotion" 
-                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain dark:hidden"
+                className="w-full max-w-[280px] md:max-w-[350px] lg:max-w-[400px] h-auto object-contain dark:hidden"
               />
               <img 
                 src={logicEmotionDark} 
                 alt="Logic meets Emotion" 
-                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain hidden dark:block"
+                className="w-full max-w-[280px] md:max-w-[350px] lg:max-w-[400px] h-auto object-contain hidden dark:block"
               />
             </div>
             
