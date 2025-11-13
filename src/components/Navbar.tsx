@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Users, Compass, Wallet, Award, Moon, Sun } from "lucide-react";
+import { Home, Users, Compass, Trophy, Moon, Sun, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import logo from "@/assets/logo.png";
+import logoDark from "@/assets/logo-dark.png";
+import logoLight from "@/assets/logo-light.png";
 
 const Navbar = () => {
   const location = useLocation();
@@ -24,37 +25,42 @@ const Navbar = () => {
     { path: "/", icon: Home, label: "Home" },
     { path: "/discover", icon: Compass, label: "Discover" },
     { path: "/community", icon: Users, label: "Community" },
-    { path: "/earning", icon: Award, label: "Earning" },
-    { path: "/wallet", icon: Wallet, label: "Wallet" },
+    { path: "/leaderboard", icon: Trophy, label: "Leaderboard" },
   ];
 
   return (
     <nav className="sticky top-0 z-50 bg-card/80 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Moral Oracle" className="w-10 h-10" />
-            <span className="text-xl font-bold font-serif text-foreground hidden sm:inline">
-              Moral Oracle
-            </span>
-          </Link>
+          <div className="flex items-center gap-8">
+            <Link to="/" className="flex items-center gap-3">
+              <img 
+                src={isDark ? logoLight : logoDark} 
+                alt="Moral Oracle" 
+                className="w-10 h-10" 
+              />
+              <span className="text-xl font-bold font-serif text-foreground hidden sm:inline">
+                Moral Oracle
+              </span>
+            </Link>
 
-          <div className="hidden md:flex items-center gap-2">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = location.pathname === item.path;
-              return (
-                <Link key={item.path} to={item.path}>
-                  <Button
-                    variant={isActive ? "default" : "ghost"}
-                    className="gap-2"
-                  >
-                    <Icon className="w-4 h-4" />
-                    {item.label}
-                  </Button>
-                </Link>
-              );
-            })}
+            <div className="hidden md:flex items-center gap-2">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link key={item.path} to={item.path}>
+                    <Button
+                      variant={isActive ? "default" : "ghost"}
+                      className="gap-2"
+                    >
+                      <Icon className="w-4 h-4" />
+                      {item.label}
+                    </Button>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
 
           <div className="flex items-center gap-2">
@@ -67,20 +73,12 @@ const Navbar = () => {
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
             
-            {isConnected ? (
+            <Link to="/wallet">
               <Button variant="outline" className="gap-2">
-                <Wallet className="w-4 h-4" />
-                {walletAddress}
+                <User className="w-4 h-4" />
+                <span className="hidden sm:inline">Thinking Profile</span>
               </Button>
-            ) : (
-              <Button
-                onClick={() => setIsConnected(true)}
-                className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 gap-2"
-              >
-                <Wallet className="w-4 h-4" />
-                Connect Wallet
-              </Button>
-            )}
+            </Link>
           </div>
         </div>
 
