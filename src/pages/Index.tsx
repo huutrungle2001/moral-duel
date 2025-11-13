@@ -159,7 +159,7 @@ const Index = () => {
       <section className="py-20 bg-gradient-to-r from-primary/10 to-primary-glow/10">
         <div className="container mx-auto px-4 text-center space-y-8">
           <h2 className="text-4xl font-bold text-foreground drop-shadow-sm">Ready to Challenge Your Thinking?</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
             Join thousands of thinkers debating the toughest moral questions. Your brilliant perspective could earn you massive rewards!
           </p>
           <Link to="/discover">
