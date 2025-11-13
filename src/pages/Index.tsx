@@ -6,8 +6,8 @@ import CaseCard from "@/components/CaseCard";
 import { mockCases } from "@/lib/mockData";
 import logicEmotionLight from "@/assets/logic-emotion-light.png";
 import logicEmotionDark from "@/assets/logic-emotion-dark.png";
-import missionBgLight from "@/assets/mission-bg-light.png";
-import missionBgDark from "@/assets/mission-bg-dark.png";
+import missionBannerLight from "@/assets/mission-banner-light.png";
+import missionBannerDark from "@/assets/mission-banner-dark.png";
 
 const Index = () => {
   const trendingCases = mockCases.filter(c => c.isTrending);
@@ -112,6 +112,56 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Mission Statement Banner */}
+      <section className="relative overflow-hidden py-20">
+        {/* Background Image - Light Mode */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat dark:hidden"
+          style={{ backgroundImage: `url(${missionBannerLight})` }}
+        />
+        
+        {/* Background Image - Dark Mode */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden dark:block"
+          style={{ backgroundImage: `url(${missionBannerDark})` }}
+        />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            {/* Left side - Logo space (kept empty as logo is in the banner) */}
+            <div className="w-full md:w-1/2" />
+            
+            {/* Right side - Text Overlay */}
+            <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-display font-bold tracking-wide
+                text-amber-600 dark:text-amber-400">
+                Our Mission
+              </h2>
+              
+              <h3 className="text-3xl md:text-5xl font-display font-bold leading-tight">
+                <span className="text-amber-600 dark:text-amber-400">Where LOGIC</span>
+                <br />
+                <span className="text-amber-600 dark:text-amber-400">meets EMOTION</span>
+              </h3>
+              
+              <p className="text-lg md:text-xl font-medium leading-relaxed 
+                text-slate-700 dark:text-slate-300">
+                Where reasoning confronts empathy,
+                <br />
+                and every voice shapes moral truth.
+              </p>
+              
+              <p className="text-base md:text-lg leading-relaxed 
+                text-slate-600 dark:text-slate-400">
+                Think deeper. Debate smarter.
+                <br />
+                Earn your influence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="py-16 bg-gradient-to-r from-primary/10 to-primary-glow/10">
         <div className="container mx-auto px-4 text-center">
@@ -125,53 +175,6 @@ const Index = () => {
               Start Your First Duel & Earn Now
             </Button>
           </Link>
-        </div>
-      </section>
-
-      {/* Mission Statement */}
-      <section className="min-h-screen relative overflow-hidden flex items-center justify-center">
-        {/* Background Image - Light Mode */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat dark:hidden"
-          style={{ backgroundImage: `url(${missionBgLight})` }}
-        >
-          <div className="absolute inset-0 backdrop-blur-sm bg-background/30" />
-        </div>
-        
-        {/* Background Image - Dark Mode */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden dark:block"
-          style={{ backgroundImage: `url(${missionBgDark})` }}
-        >
-          <div className="absolute inset-0 backdrop-blur-sm bg-background/40" />
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10 w-full">
-          <div className="max-w-5xl mx-auto text-center space-y-8 opacity-0 translate-y-8 animate-fade-in [animation-delay:200ms] [animation-fill-mode:forwards]">
-            <h2 className="text-4xl md:text-6xl font-display font-bold tracking-wide uppercase
-              text-primary dark:text-primary-glow
-              drop-shadow-[0_4px_30px_rgba(92,189,185,0.9)] dark:drop-shadow-[0_4px_40px_rgba(92,189,185,1)]">
-              Our Mission
-            </h2>
-            
-            <div className="space-y-6 py-8">
-              <p className="text-3xl md:text-5xl font-display font-bold leading-tight
-                text-foreground dark:text-foreground
-                drop-shadow-[0_2px_15px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">
-                Where <span className="text-primary dark:text-primary-glow drop-shadow-[0_0_30px_rgba(92,189,185,1)]">LOGIC</span> meets <span className="text-accent dark:text-accent drop-shadow-[0_0_30px_rgba(251,113,133,1)]">EMOTION</span>
-              </p>
-              <p className="text-xl md:text-2xl font-display font-semibold leading-relaxed 
-                text-foreground/95 dark:text-foreground/95
-                drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)] dark:drop-shadow-[0_2px_15px_rgba(0,0,0,0.7)]">
-                Where reasoning confronts empathy, and every voice shapes moral truth.
-              </p>
-              <p className="text-lg md:text-xl font-display leading-relaxed 
-                text-foreground/80 dark:text-foreground/90
-                drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] dark:drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
-                Think deeper. Debate smarter. Earn your influence.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
     </div>
