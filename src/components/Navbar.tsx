@@ -35,7 +35,7 @@ const Navbar = () => {
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-4">
               <img 
-                src={isDark ? logoDark : logoLight} 
+                src={isDark ? logoLight : logoDark} 
                 alt="Moral Oracle" 
                 className="w-12 h-12 p-1 rounded-lg" 
               />
