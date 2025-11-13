@@ -307,10 +307,10 @@ const CaseDetail = () => {
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-bold text-yes-foreground flex items-center gap-1">
-                        <span className="text-lg">💚</span> YES
+                      <span className="text-sm font-bold text-foreground">YES</span>
+                      <span className="text-3xl font-bold text-yes-foreground drop-shadow-[0_2px_4px_rgba(92,189,185,0.5)]">
+                        {yesPercentage.toFixed(0)}%
                       </span>
-                      <span className="text-2xl font-bold text-yes-foreground">{yesPercentage.toFixed(0)}%</span>
                     </div>
                     <div className="h-4 rounded-full overflow-hidden bg-muted border border-border/50 shadow-inner">
                       <div className="h-full bg-gradient-to-r from-yes to-yes/80 transition-all duration-500 shadow-lg" 
@@ -320,15 +320,15 @@ const CaseDetail = () => {
                   </div>
 
                   <div className="text-center py-2">
-                    <span className="text-4xl font-bold text-destructive drop-shadow-lg">⚔️ VS ⚔️</span>
+                    <span className="text-3xl font-bold text-foreground drop-shadow-lg">VS</span>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-bold text-no-foreground flex items-center gap-1">
-                        <span className="text-lg">❤️</span> NO
+                      <span className="text-sm font-bold text-foreground">NO</span>
+                      <span className="text-3xl font-bold text-no-foreground drop-shadow-[0_2px_4px_rgba(239,68,68,0.5)]">
+                        {noPercentage.toFixed(0)}%
                       </span>
-                      <span className="text-2xl font-bold text-no-foreground">{noPercentage.toFixed(0)}%</span>
                     </div>
                     <div className="h-4 rounded-full overflow-hidden bg-muted border border-border/50 shadow-inner">
                       <div className="h-full bg-gradient-to-l from-no to-no/80 transition-all duration-500 shadow-lg" 
