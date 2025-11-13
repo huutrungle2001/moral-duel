@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Home, Users, Compass, Wallet, Award, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const location = useLocation();
@@ -31,11 +32,9 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-card/80 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center">
-              <span className="text-xl font-bold text-primary-foreground">MO</span>
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logo} alt="Moral Oracle" className="w-10 h-10" />
+            <span className="text-xl font-bold font-serif text-foreground hidden sm:inline">
               Moral Oracle
             </span>
           </Link>

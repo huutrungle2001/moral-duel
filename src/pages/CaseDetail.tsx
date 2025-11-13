@@ -77,7 +77,7 @@ const CaseDetail = () => {
         </Link>
 
         {/* Case Header */}
-        <Card className="p-8 mb-8 bg-gradient-to-br from-card to-primary/5">
+        <Card className="p-8 mb-8 bg-card">
           <div className="space-y-4">
             <div className="flex flex-wrap gap-2">
               {caseData.hashtags.map((tag) => (
@@ -85,7 +85,7 @@ const CaseDetail = () => {
               ))}
             </div>
             
-            <h1 className="text-4xl font-bold text-foreground">{caseData.title}</h1>
+            <h1 className="text-4xl font-bold text-foreground font-serif">{caseData.title}</h1>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
               {caseData.context}
@@ -101,65 +101,8 @@ const CaseDetail = () => {
                 <span className="font-medium">{caseData.timeRemaining} remaining</span>
               </div>
             </div>
-
-            {/* Vote Stats */}
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm font-semibold">
-                <span className="text-yes-foreground">YES {yesPercentage.toFixed(0)}%</span>
-                <span className="text-no-foreground">NO {noPercentage.toFixed(0)}%</span>
-              </div>
-              <div className="flex h-3 rounded-full overflow-hidden bg-muted">
-                <div
-                  className="bg-yes transition-all duration-500"
-                  style={{ width: `${yesPercentage}%` }}
-                />
-                <div
-                  className="bg-no transition-all duration-500"
-                  style={{ width: `${noPercentage}%` }}
-                />
-              </div>
-            </div>
           </div>
         </Card>
-
-        {/* Submit Argument */}
-        {!hasVoted && (
-          <Card className="p-6 mb-8">
-            <h3 className="text-xl font-bold text-foreground mb-4">Submit Your Argument</h3>
-            <div className="space-y-4">
-              <div className="flex gap-4">
-                <Button
-                  variant={selectedSide === "yes" ? "default" : "outline"}
-                  onClick={() => setSelectedSide("yes")}
-                  className="flex-1 bg-yes hover:bg-yes/90 text-yes-foreground"
-                >
-                  I Vote YES
-                </Button>
-                <Button
-                  variant={selectedSide === "no" ? "default" : "outline"}
-                  onClick={() => setSelectedSide("no")}
-                  className="flex-1 bg-no hover:bg-no/90 text-no-foreground"
-                >
-                  I Vote NO
-                </Button>
-              </div>
-              <Textarea
-                placeholder="Write your argument (max 300 characters)..."
-                value={userArgument}
-                onChange={(e) => setUserArgument(e.target.value.slice(0, 300))}
-                className="min-h-[120px]"
-              />
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">
-                  {userArgument.length}/300 characters
-                </span>
-                <Button onClick={handleSubmitArgument}>
-                  Submit Argument
-                </Button>
-              </div>
-            </div>
-          </Card>
-        )}
 
         {/* Vote Instructions */}
         <div className="mb-6 p-4 bg-accent/10 border border-accent/20 rounded-lg">
@@ -168,76 +111,171 @@ const CaseDetail = () => {
           </p>
         </div>
 
-        {/* Debate Arena - 2 Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* YES Arguments */}
-          <div className="space-y-4">
-            <div className="bg-yes/20 border-2 border-yes rounded-xl p-4">
-              <h2 className="text-2xl font-bold text-yes-foreground mb-2">
-                YES — {caseData.yesArgument}
-              </h2>
-              <p className="text-sm text-muted-foreground">
-                Potential reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
-              </p>
-            </div>
+        {/* Main Duel Layout - 3 Columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* LEFT: Vote & Comment */}
+          <div className="space-y-6">
+            <Card className="p-6 bg-gradient-to-br from-yes/10 to-no/10">
+              <h3 className="text-xl font-bold text-foreground mb-4 font-serif">Cast Your Vote</h3>
+              <div className="space-y-3">
+                <Button
+                  variant={selectedSide === "yes" ? "default" : "outline"}
+                  onClick={() => setSelectedSide("yes")}
+                  className="w-full bg-yes hover:bg-yes/90 text-yes-foreground"
+                >
+                  I Vote YES
+                </Button>
+                <Button
+                  variant={selectedSide === "no" ? "default" : "outline"}
+                  onClick={() => setSelectedSide("no")}
+                  className="w-full bg-no hover:bg-no/90 text-no-foreground"
+                >
+                  I Vote NO
+                </Button>
+              </div>
+            </Card>
 
-            {caseArguments.yes.map((arg) => (
-              <Card key={arg.id} className="p-5 hover:shadow-md transition-shadow">
-                <div className="space-y-3">
-                  <p className="text-foreground leading-relaxed">{arg.content}</p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">{arg.author}</span>
-                    <div className="flex items-center gap-3">
-                      <span className="text-accent font-semibold">{arg.potentialReward} tokens</span>
-                      <Button
-                        size="sm"
-                        variant={votedArguments.includes(arg.id) ? "default" : "outline"}
-                        onClick={() => handleVoteForArgument(arg.id)}
-                        className="gap-1"
-                      >
-                        <ThumbsUp className="w-3 h-3" />
-                        {arg.votes}
-                      </Button>
-                    </div>
+            {!hasVoted && (
+              <Card className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-4 font-serif">Your Argument</h3>
+                <div className="space-y-4">
+                  <Textarea
+                    placeholder="Write your argument (max 300 characters)..."
+                    value={userArgument}
+                    onChange={(e) => setUserArgument(e.target.value.slice(0, 300))}
+                    className="min-h-[120px]"
+                  />
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">
+                      {userArgument.length}/300
+                    </span>
+                    <Button onClick={handleSubmitArgument} className="bg-primary">
+                      Submit
+                    </Button>
                   </div>
                 </div>
               </Card>
-            ))}
+            )}
           </div>
 
-          {/* NO Arguments */}
-          <div className="space-y-4">
-            <div className="bg-no/20 border-2 border-no rounded-xl p-4">
-              <h2 className="text-2xl font-bold text-no-foreground mb-2">
-                NO — {caseData.noArgument}
-              </h2>
-              <p className="text-sm text-muted-foreground">
-                Potential reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
-              </p>
-            </div>
+          {/* MIDDLE: Battle Stats */}
+          <div className="flex flex-col justify-center">
+            <Card className="p-8 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-duel opacity-30" />
+              
+              <div className="relative z-10 space-y-6">
+                <div className="text-center">
+                  <h2 className="text-3xl font-bold text-foreground mb-2 font-serif">Battle Stats</h2>
+                  <p className="text-sm text-muted-foreground">Live vote distribution</p>
+                </div>
 
-            {caseArguments.no.map((arg) => (
-              <Card key={arg.id} className="p-5 hover:shadow-md transition-shadow">
-                <div className="space-y-3">
-                  <p className="text-foreground leading-relaxed">{arg.content}</p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">{arg.author}</span>
-                    <div className="flex items-center gap-3">
-                      <span className="text-accent font-semibold">{arg.potentialReward} tokens</span>
-                      <Button
-                        size="sm"
-                        variant={votedArguments.includes(arg.id) ? "default" : "outline"}
-                        onClick={() => handleVoteForArgument(arg.id)}
-                        className="gap-1"
-                      >
-                        <ThumbsUp className="w-3 h-3" />
-                        {arg.votes}
-                      </Button>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-bold text-yes-foreground">YES</span>
+                      <span className="text-2xl font-bold text-yes-foreground">{yesPercentage.toFixed(0)}%</span>
                     </div>
+                    <div className="h-4 rounded-full overflow-hidden bg-muted">
+                      <div className="h-full bg-yes transition-all duration-500" style={{ width: `${yesPercentage}%` }} />
+                    </div>
+                    <p className="text-xs text-muted-foreground">{caseData.yesVotes} votes</p>
+                  </div>
+
+                  <div className="text-center py-2">
+                    <span className="text-4xl font-bold text-muted-foreground">VS</span>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-bold text-no-foreground">NO</span>
+                      <span className="text-2xl font-bold text-no-foreground">{noPercentage.toFixed(0)}%</span>
+                    </div>
+                    <div className="h-4 rounded-full overflow-hidden bg-muted">
+                      <div className="h-full bg-no transition-all duration-500" style={{ width: `${noPercentage}%` }} />
+                    </div>
+                    <p className="text-xs text-muted-foreground">{caseData.noVotes} votes</p>
                   </div>
                 </div>
-              </Card>
-            ))}
+
+                <div className="text-center pt-4 border-t border-border">
+                  <p className="text-sm text-muted-foreground">Total Participants</p>
+                  <p className="text-3xl font-bold text-foreground">{totalVotes}</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* RIGHT: Arguments */}
+          <div className="space-y-6">
+            {/* YES Arguments */}
+            <div className="space-y-4">
+              <div className="bg-yes/20 border-2 border-yes rounded-xl p-4">
+                <h2 className="text-lg font-bold text-yes-foreground font-serif">
+                  YES — {caseData.yesArgument}
+                </h2>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
+                </p>
+              </div>
+
+              {caseArguments.yes.slice(0, 3).map((arg) => (
+                <Card key={arg.id} className="p-4 hover:shadow-md transition-shadow">
+                  <div className="space-y-3">
+                    <p className="text-sm text-foreground leading-relaxed">{arg.content}</p>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-muted-foreground">{arg.author}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-accent font-semibold">{arg.potentialReward} tokens</span>
+                        <Button
+                          size="sm"
+                          variant={votedArguments.includes(arg.id) ? "default" : "outline"}
+                          onClick={() => handleVoteForArgument(arg.id)}
+                          className="gap-1 h-7 text-xs"
+                        >
+                          <ThumbsUp className="w-3 h-3" />
+                          {arg.votes}
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            {/* NO Arguments */}
+            <div className="space-y-4">
+              <div className="bg-no/20 border-2 border-no rounded-xl p-4">
+                <h2 className="text-lg font-bold text-no-foreground font-serif">
+                  NO — {caseData.noArgument}
+                </h2>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
+                </p>
+              </div>
+
+              {caseArguments.no.slice(0, 3).map((arg) => (
+                <Card key={arg.id} className="p-4 hover:shadow-md transition-shadow">
+                  <div className="space-y-3">
+                    <p className="text-sm text-foreground leading-relaxed">{arg.content}</p>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-muted-foreground">{arg.author}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-accent font-semibold">{arg.potentialReward} tokens</span>
+                        <Button
+                          size="sm"
+                          variant={votedArguments.includes(arg.id) ? "default" : "outline"}
+                          onClick={() => handleVoteForArgument(arg.id)}
+                          className="gap-1 h-7 text-xs"
+                        >
+                          <ThumbsUp className="w-3 h-3" />
+                          {arg.votes}
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>
