@@ -37,7 +37,7 @@ const Navbar = () => {
               <img 
                 src={isDark ? logoLight : logoDark} 
                 alt="Moral Oracle" 
-                className="w-12 h-12 p-1" 
+                className="w-12 h-12 p-1 rounded-lg" 
               />
               <span className="text-xl font-bold font-serif text-foreground hidden sm:inline">
                 Moral Oracle
