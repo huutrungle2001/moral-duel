@@ -83,50 +83,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Mission Statement */}
-      <section className="min-h-screen relative overflow-hidden flex items-end pb-16 md:pb-24">
-        {/* Background Image - Light Mode */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat dark:hidden"
-          style={{ backgroundImage: `url(${missionBgLight})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/40" />
-        </div>
-        
-        {/* Background Image - Dark Mode */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden dark:block"
-          style={{ backgroundImage: `url(${missionBgDark})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50" />
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10 w-full">
-          <div className="max-w-5xl mx-auto text-center space-y-8 opacity-0 translate-y-8 animate-fade-in [animation-delay:200ms] [animation-fill-mode:forwards]">
-            <h2 className="text-4xl md:text-6xl font-display font-bold tracking-wide uppercase
-              text-primary dark:text-primary-glow
-              drop-shadow-[0_2px_20px_rgba(92,189,185,0.6)] dark:drop-shadow-[0_2px_30px_rgba(92,189,185,0.8)]">
-              Our Mission
-            </h2>
-            
-            <div className="space-y-6 py-4 bg-background/80 dark:bg-background/70 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-border/50 shadow-2xl">
-              <p className="text-2xl md:text-4xl font-display font-bold leading-tight
-                text-foreground dark:text-foreground">
-                Where <span className="text-primary dark:text-primary-glow drop-shadow-[0_0_20px_rgba(92,189,185,0.8)]">LOGIC</span> meets <span className="text-accent dark:text-accent drop-shadow-[0_0_20px_rgba(251,113,133,0.8)]">EMOTION</span>
-              </p>
-              <p className="text-lg md:text-xl font-display font-semibold leading-relaxed 
-                text-foreground/90 dark:text-foreground/95">
-                Where reasoning confronts empathy, and every voice shapes moral truth.
-              </p>
-              <p className="text-base md:text-lg font-display leading-relaxed 
-                text-muted-foreground dark:text-muted-foreground">
-                Think deeper. Debate smarter. Earn your influence.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Trending Cases */}
       <section className="py-10 bg-muted/30 dark:bg-gradient-to-b dark:from-background dark:via-muted/10 dark:to-background relative overflow-hidden">
         <div className="absolute inset-0 dark:opacity-100 opacity-0" style={{ background: 'var(--gradient-galaxy)' }} />
@@ -169,6 +125,53 @@ const Index = () => {
               Start Your First Duel & Earn Now
             </Button>
           </Link>
+        </div>
+      </section>
+
+      {/* Mission Statement */}
+      <section className="min-h-screen relative overflow-hidden flex items-center justify-center">
+        {/* Background Image - Light Mode */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat dark:hidden"
+          style={{ backgroundImage: `url(${missionBgLight})` }}
+        >
+          <div className="absolute inset-0 backdrop-blur-sm bg-background/30" />
+        </div>
+        
+        {/* Background Image - Dark Mode */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden dark:block"
+          style={{ backgroundImage: `url(${missionBgDark})` }}
+        >
+          <div className="absolute inset-0 backdrop-blur-sm bg-background/40" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10 w-full">
+          <div className="max-w-5xl mx-auto text-center space-y-8 opacity-0 translate-y-8 animate-fade-in [animation-delay:200ms] [animation-fill-mode:forwards]">
+            <h2 className="text-4xl md:text-6xl font-display font-bold tracking-wide uppercase
+              text-primary dark:text-primary-glow
+              drop-shadow-[0_4px_30px_rgba(92,189,185,0.9)] dark:drop-shadow-[0_4px_40px_rgba(92,189,185,1)]">
+              Our Mission
+            </h2>
+            
+            <div className="space-y-6 py-8">
+              <p className="text-3xl md:text-5xl font-display font-bold leading-tight
+                text-foreground dark:text-foreground
+                drop-shadow-[0_2px_15px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">
+                Where <span className="text-primary dark:text-primary-glow drop-shadow-[0_0_30px_rgba(92,189,185,1)]">LOGIC</span> meets <span className="text-accent dark:text-accent drop-shadow-[0_0_30px_rgba(251,113,133,1)]">EMOTION</span>
+              </p>
+              <p className="text-xl md:text-2xl font-display font-semibold leading-relaxed 
+                text-foreground/95 dark:text-foreground/95
+                drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)] dark:drop-shadow-[0_2px_15px_rgba(0,0,0,0.7)]">
+                Where reasoning confronts empathy, and every voice shapes moral truth.
+              </p>
+              <p className="text-lg md:text-xl font-display leading-relaxed 
+                text-foreground/80 dark:text-foreground/90
+                drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] dark:drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+                Think deeper. Debate smarter. Earn your influence.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
