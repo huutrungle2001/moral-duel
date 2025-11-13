@@ -47,8 +47,8 @@ const CaseCard = ({ caseData }: CaseCardProps) => {
           {/* Vote Stats */}
           <div className="space-y-2">
             <div className="flex justify-between text-sm font-medium">
-              <span className="text-yes-foreground">YES {yesPercentage.toFixed(0)}%</span>
-              <span className="text-no-foreground">NO {noPercentage.toFixed(0)}%</span>
+              <span className="text-yes">YES {yesPercentage.toFixed(0)}%</span>
+              <span className="text-no">NO {noPercentage.toFixed(0)}%</span>
             </div>
             <div className="flex h-2 rounded-full overflow-hidden bg-muted">
               <div
@@ -70,9 +70,14 @@ const CaseCard = ({ caseData }: CaseCardProps) => {
                   <p className="text-foreground italic line-clamp-2">
                     "{comment.content}"
                   </p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    — {comment.author}
-                  </p>
+                  <div className="flex items-center justify-between mt-1">
+                    <p className="text-xs text-muted-foreground">
+                      — {comment.author}
+                    </p>
+                    <span className="text-xs text-muted-foreground">
+                      👍 {comment.votes}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
