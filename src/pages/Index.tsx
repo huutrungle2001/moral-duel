@@ -24,12 +24,12 @@ const Index = () => {
               <span className="text-sm font-medium">Where Logic Meets Morality</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold leading-[1.3] tracking-tight mb-2">
+            <h1 className="text-5xl md:text-7xl font-bold leading-[1.3] tracking-tight mb-8">
               <span className="bg-gradient-to-r from-primary via-primary-glow to-accent dark:from-primary dark:via-primary-glow dark:to-accent bg-clip-text text-transparent drop-shadow-lg">
                 Play to Think,
               </span>
               <br />
-              <span className="text-foreground drop-shadow-sm">Think to Earn</span>
+              <span className="block mt-4 text-foreground drop-shadow-sm">Think to Earn</span>
             </h1>
             
             <p className="text-xl max-w-2xl mx-auto leading-[1.9] font-serif italic text-foreground/90">
