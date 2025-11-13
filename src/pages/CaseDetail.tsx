@@ -18,6 +18,8 @@ const CaseDetail = () => {
   const [hasVoted, setHasVoted] = useState(false);
   const [selectedSide, setSelectedSide] = useState<"yes" | "no" | null>(null);
   const [votedArguments, setVotedArguments] = useState<string[]>([]);
+  const [hasLiked, setHasLiked] = useState(false);
+  const [hasWrittenArgument, setHasWrittenArgument] = useState(false);
 
   if (!caseData || !caseArguments) {
     return (
@@ -37,30 +39,54 @@ const CaseDetail = () => {
   const yesPercentage = (caseData.yesVotes / totalVotes) * 100;
   const noPercentage = (caseData.noVotes / totalVotes) * 100;
 
+  const handleVoteSelection = (side: "yes" | "no") => {
+    setSelectedSide(side);
+    toast.success(`You voted ${side.toUpperCase()}! Now like 3 arguments to continue.`);
+  };
+
+  const handleVoteForArgument = (argId: string) => {
+    if (!selectedSide) {
+      toast.error("Step 1: Please vote YES or NO first!");
+      return;
+    }
+
+    if (votedArguments.includes(argId)) {
+      setVotedArguments(votedArguments.filter(id => id !== argId));
+      toast.info("Like removed");
+      if (votedArguments.length - 1 < 3) {
+        setHasLiked(false);
+      }
+    } else if (votedArguments.length < 3) {
+      const newVotedArgs = [...votedArguments, argId];
+      setVotedArguments(newVotedArgs);
+      if (newVotedArgs.length === 3) {
+        setHasLiked(true);
+        toast.success("Great! Now write your argument to complete your vote.");
+      } else {
+        toast.success(`Liked! (${newVotedArgs.length}/3)`);
+      }
+    } else {
+      toast.error("You can only like 3 arguments");
+    }
+  };
+
   const handleSubmitArgument = () => {
     if (!selectedSide) {
-      toast.error("Please select YES or NO first");
+      toast.error("Step 1: Please vote YES or NO first!");
+      return;
+    }
+    if (!hasLiked) {
+      toast.error("Step 2: Please like 3 arguments first!");
       return;
     }
     if (userArgument.trim().length < 20) {
       toast.error("Argument must be at least 20 characters");
       return;
     }
-    toast.success("Argument submitted successfully!");
-    setUserArgument("");
+    setHasWrittenArgument(true);
     setHasVoted(true);
-  };
-
-  const handleVoteForArgument = (argId: string) => {
-    if (votedArguments.includes(argId)) {
-      setVotedArguments(votedArguments.filter(id => id !== argId));
-      toast.info("Vote removed");
-    } else if (votedArguments.length < 3) {
-      setVotedArguments([...votedArguments, argId]);
-      toast.success("Voted for this argument");
-    } else {
-      toast.error("You can only vote for 3 arguments");
-    }
+    toast.success("🎉 Vote complete! Your argument has been submitted successfully!");
+    setUserArgument("");
   };
 
   return (
@@ -77,17 +103,21 @@ const CaseDetail = () => {
         </Link>
 
         {/* Case Header */}
-        <Card className="p-8 mb-8 bg-card">
+        <Card className="p-8 mb-8 bg-background/95 backdrop-blur-sm
+          border-2 border-border/60
+          dark:border-primary/30
+          shadow-[0_4px_20px_rgba(92,189,185,0.2),0_2px_8px_rgba(0,0,0,0.08)]
+          dark:shadow-[0_6px_25px_rgba(225,179,130,0.2),0_3px_10px_rgba(225,179,130,0.15)]">
           <div className="space-y-4">
             <div className="flex flex-wrap gap-2">
               {caseData.hashtags.map((tag) => (
-                <Badge key={tag} variant="secondary">{tag}</Badge>
+                <Badge key={tag} variant="secondary" className="bg-muted text-foreground border border-border/30">{tag}</Badge>
               ))}
             </div>
             
             <h1 className="text-4xl font-bold text-foreground font-serif">{caseData.title}</h1>
             
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-foreground/80 leading-relaxed">
               {caseData.context}
             </p>
 
@@ -105,10 +135,46 @@ const CaseDetail = () => {
         </Card>
 
         {/* Vote Instructions */}
-        <div className="mb-6 p-4 bg-accent/10 border border-accent/20 rounded-lg">
-          <p className="text-sm font-medium text-foreground">
-            💡 Give your choice, comment and vote the top 3 arguments that you find most compelling ({votedArguments.length}/3 selected)
-          </p>
+        <div className="mb-6 p-6 bg-background/95 backdrop-blur-sm
+          border-2 border-primary/30
+          dark:border-primary/40
+          shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(0,0,0,0.05)]
+          dark:shadow-[0_6px_25px_rgba(225,179,130,0.15),0_3px_10px_rgba(225,179,130,0.1)]
+          rounded-lg">
+          <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+            <span className="text-2xl">📋</span>
+            How to Vote - Complete 3 Steps:
+          </h3>
+          <div className="space-y-2 text-sm text-foreground/80">
+            <div className="flex items-start gap-3">
+              <span className={`font-bold ${selectedSide ? 'text-primary' : 'text-muted-foreground'}`}>
+                {selectedSide ? '✅' : '1️⃣'}
+              </span>
+              <span>
+                <strong className={selectedSide ? 'text-primary' : ''}>Vote YES or NO</strong>
+                {selectedSide && <span className="text-primary ml-2">✓ Done</span>}
+              </span>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className={`font-bold ${hasLiked ? 'text-primary' : 'text-muted-foreground'}`}>
+                {hasLiked ? '✅' : '2️⃣'}
+              </span>
+              <span>
+                <strong className={hasLiked ? 'text-primary' : ''}>Like 3 arguments</strong> that you find most compelling 
+                ({votedArguments.length}/3 selected)
+                {hasLiked && <span className="text-primary ml-2">✓ Done</span>}
+              </span>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className={`font-bold ${hasWrittenArgument ? 'text-primary' : 'text-muted-foreground'}`}>
+                {hasWrittenArgument ? '✅' : '3️⃣'}
+              </span>
+              <span>
+                <strong className={hasWrittenArgument ? 'text-primary' : ''}>Write your argument</strong> explaining your vote (min 20 characters)
+                {hasWrittenArgument && <span className="text-primary ml-2">✓ Done</span>}
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Main Duel Layout - 3 Columns */}
@@ -117,30 +183,49 @@ const CaseDetail = () => {
           <div className="space-y-4">
             <Button
               variant={selectedSide === "yes" ? "default" : "outline"}
-              onClick={() => setSelectedSide("yes")}
-              className="w-full bg-yes hover:bg-yes/90 text-yes-foreground py-6 text-lg font-bold"
+              onClick={() => handleVoteSelection("yes")}
+              disabled={hasVoted}
+              className="w-full bg-yes hover:bg-yes/90 text-yes-foreground py-6 text-lg font-bold disabled:opacity-50"
             >
-              I Vote YES
+              {selectedSide === "yes" ? "✓ Voted YES" : "I Vote YES"}
             </Button>
 
-            {/* Comment Section - Appears after voting YES */}
-            {selectedSide === "yes" && !hasVoted && (
-              <Card className="p-4 bg-yes/5 border-yes/30">
-                <h4 className="text-sm font-semibold text-foreground mb-3">Share Your Reasoning</h4>
+            {/* Comment Section - Appears after completing steps 1 & 2 */}
+            {selectedSide === "yes" && hasLiked && !hasVoted && (
+              <Card className="p-4 bg-background/95 backdrop-blur-sm border-2 border-yes/30 
+                shadow-[0_4px_15px_rgba(92,189,185,0.2)]
+                dark:shadow-[0_4px_15px_rgba(225,179,130,0.2)]">
+                <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                  <span className="text-lg">3️⃣</span>
+                  Share Your Reasoning
+                </h4>
                 <Textarea
-                  placeholder="Explain why you voted YES (max 300 characters)..."
+                  placeholder="Explain why you voted YES (min 20 characters, max 300)..."
                   value={userArgument}
                   onChange={(e) => setUserArgument(e.target.value.slice(0, 300))}
-                  className="min-h-[100px] mb-2"
+                  className="min-h-[100px] mb-2 bg-background border-border"
                 />
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-muted-foreground">
-                    {userArgument.length}/300
+                    {userArgument.length}/300 characters
                   </span>
-                  <Button onClick={handleSubmitArgument} size="sm" className="bg-yes hover:bg-yes/90">
-                    Submit
+                  <Button 
+                    onClick={handleSubmitArgument} 
+                    size="sm" 
+                    className="bg-yes hover:bg-yes/90"
+                    disabled={userArgument.length < 20}
+                  >
+                    Submit Vote
                   </Button>
                 </div>
+              </Card>
+            )}
+            
+            {!hasLiked && selectedSide === "yes" && (
+              <Card className="p-4 bg-muted/30 border-border/30">
+                <p className="text-sm text-muted-foreground text-center">
+                  👇 Like 3 arguments below to unlock the comment section
+                </p>
               </Card>
             )}
 
@@ -154,7 +239,14 @@ const CaseDetail = () => {
             </div>
 
             {caseArguments.yes.slice(0, 3).map((arg) => (
-              <Card key={arg.id} className="p-4 hover:shadow-md transition-shadow">
+              <Card key={arg.id} className="p-4 bg-background/95 backdrop-blur-sm
+                border-2 border-border/60 hover:border-primary/50
+                dark:border-primary/30 dark:hover:border-primary/50
+                shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(0,0,0,0.05)]
+                hover:shadow-[0_8px_30px_rgba(92,189,185,0.25),0_4px_12px_rgba(0,0,0,0.08)]
+                dark:shadow-[0_6px_25px_rgba(225,179,130,0.15),0_3px_10px_rgba(225,179,130,0.1)]
+                dark:hover:shadow-[0_12px_40px_rgba(225,179,130,0.25),0_6px_16px_rgba(225,179,130,0.15)]
+                transition-all duration-300">
                 <div className="space-y-3">
                   <p className="text-sm text-foreground leading-relaxed">{arg.content}</p>
                   <div className="flex items-center justify-between text-xs">
@@ -166,6 +258,7 @@ const CaseDetail = () => {
                         variant={votedArguments.includes(arg.id) ? "default" : "outline"}
                         onClick={() => handleVoteForArgument(arg.id)}
                         className="gap-1 h-7 text-xs"
+                        disabled={hasVoted}
                       >
                         <ThumbsUp className="w-3 h-3" />
                         {arg.votes}
@@ -179,8 +272,12 @@ const CaseDetail = () => {
 
           {/* MIDDLE: Battle Stats */}
           <div className="flex flex-col justify-center">
-            <Card className="p-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-duel opacity-30" />
+            <Card className="p-8 relative overflow-hidden bg-background/95 backdrop-blur-sm
+              border-2 border-border/60
+              dark:border-primary/30
+              shadow-[0_4px_20px_rgba(92,189,185,0.2),0_2px_8px_rgba(0,0,0,0.08)]
+              dark:shadow-[0_6px_25px_rgba(225,179,130,0.2),0_3px_10px_rgba(225,179,130,0.15)]">
+              <div className="absolute inset-0 bg-gradient-duel opacity-20" />
               
               <div className="relative z-10 space-y-6">
                 <div className="text-center">
@@ -228,30 +325,48 @@ const CaseDetail = () => {
           <div className="space-y-4">
             <Button
               variant={selectedSide === "no" ? "default" : "outline"}
-              onClick={() => setSelectedSide("no")}
-              className="w-full bg-no hover:bg-no/90 text-no-foreground py-6 text-lg font-bold"
+              onClick={() => handleVoteSelection("no")}
+              disabled={hasVoted}
+              className="w-full bg-no hover:bg-no/90 text-no-foreground py-6 text-lg font-bold disabled:opacity-50"
             >
-              I Vote NO
+              {selectedSide === "no" ? "✓ Voted NO" : "I Vote NO"}
             </Button>
 
-            {/* Comment Section - Appears after voting NO */}
-            {selectedSide === "no" && !hasVoted && (
-              <Card className="p-4 bg-no/5 border-no/30">
-                <h4 className="text-sm font-semibold text-foreground mb-3">Share Your Reasoning</h4>
+            {/* Comment Section - Appears after completing steps 1 & 2 */}
+            {selectedSide === "no" && hasLiked && !hasVoted && (
+              <Card className="p-4 bg-background/95 backdrop-blur-sm border-2 border-no/30
+                shadow-[0_4px_15px_rgba(239,68,68,0.2)]">
+                <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                  <span className="text-lg">3️⃣</span>
+                  Share Your Reasoning
+                </h4>
                 <Textarea
-                  placeholder="Explain why you voted NO (max 300 characters)..."
+                  placeholder="Explain why you voted NO (min 20 characters, max 300)..."
                   value={userArgument}
                   onChange={(e) => setUserArgument(e.target.value.slice(0, 300))}
-                  className="min-h-[100px] mb-2"
+                  className="min-h-[100px] mb-2 bg-background border-border"
                 />
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-muted-foreground">
-                    {userArgument.length}/300
+                    {userArgument.length}/300 characters
                   </span>
-                  <Button onClick={handleSubmitArgument} size="sm" className="bg-no hover:bg-no/90">
-                    Submit
+                  <Button 
+                    onClick={handleSubmitArgument} 
+                    size="sm" 
+                    className="bg-no hover:bg-no/90"
+                    disabled={userArgument.length < 20}
+                  >
+                    Submit Vote
                   </Button>
                 </div>
+              </Card>
+            )}
+            
+            {!hasLiked && selectedSide === "no" && (
+              <Card className="p-4 bg-muted/30 border-border/30">
+                <p className="text-sm text-muted-foreground text-center">
+                  👇 Like 3 arguments below to unlock the comment section
+                </p>
               </Card>
             )}
 
@@ -265,7 +380,14 @@ const CaseDetail = () => {
             </div>
 
             {caseArguments.no.slice(0, 3).map((arg) => (
-              <Card key={arg.id} className="p-4 hover:shadow-md transition-shadow">
+              <Card key={arg.id} className="p-4 bg-background/95 backdrop-blur-sm
+                border-2 border-border/60 hover:border-primary/50
+                dark:border-primary/30 dark:hover:border-primary/50
+                shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(0,0,0,0.05)]
+                hover:shadow-[0_8px_30px_rgba(92,189,185,0.25),0_4px_12px_rgba(0,0,0,0.08)]
+                dark:shadow-[0_6px_25px_rgba(225,179,130,0.15),0_3px_10px_rgba(225,179,130,0.1)]
+                dark:hover:shadow-[0_12px_40px_rgba(225,179,130,0.25),0_6px_16px_rgba(225,179,130,0.15)]
+                transition-all duration-300">
                 <div className="space-y-3">
                   <p className="text-sm text-foreground leading-relaxed">{arg.content}</p>
                   <div className="flex items-center justify-between text-xs">
@@ -277,6 +399,7 @@ const CaseDetail = () => {
                         variant={votedArguments.includes(arg.id) ? "default" : "outline"}
                         onClick={() => handleVoteForArgument(arg.id)}
                         className="gap-1 h-7 text-xs"
+                        disabled={hasVoted}
                       >
                         <ThumbsUp className="w-3 h-3" />
                         {arg.votes}
