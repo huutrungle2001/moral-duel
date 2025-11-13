@@ -17,10 +17,10 @@ const CaseCard = ({ caseData }: CaseCardProps) => {
     <Link to={`/case/${caseData.id}`}>
       <Card className="p-6 transition-all duration-300 hover:-translate-y-2 
         bg-background/95 backdrop-blur-sm
-        border-2 border-primary/20 hover:border-primary/40
+        border-2 border-border/60 hover:border-primary/50
         dark:border-primary/30 dark:hover:border-primary/50
-        shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(92,189,185,0.1)]
-        hover:shadow-[0_8px_30px_rgba(92,189,185,0.25),0_4px_12px_rgba(92,189,185,0.15)]
+        shadow-[0_4px_20px_rgba(92,189,185,0.2),0_2px_8px_rgba(0,0,0,0.08)]
+        hover:shadow-[0_8px_30px_rgba(92,189,185,0.3),0_4px_12px_rgba(0,0,0,0.12)]
         dark:shadow-[0_6px_25px_rgba(225,179,130,0.2),0_3px_10px_rgba(225,179,130,0.15)]
         dark:hover:shadow-[0_12px_40px_rgba(225,179,130,0.3),0_6px_16px_rgba(225,179,130,0.2)]">
         <div className="space-y-4">
