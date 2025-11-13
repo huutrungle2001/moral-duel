@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import CaseCard from "@/components/CaseCard";
 import { mockCases } from "@/lib/mockData";
-import logicEmotionImage from "@/assets/logic-emotion.png";
+import logicEmotionLight from "@/assets/logic-emotion-light.png";
+import logicEmotionDark from "@/assets/logic-emotion-dark.png";
 
 const Index = () => {
   const trendingCases = mockCases.filter(c => c.isTrending);
@@ -82,33 +83,44 @@ const Index = () => {
 
       {/* Mission Statement */}
       <section className="py-32 relative overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image - Light Mode */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${logicEmotionImage})` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat dark:hidden"
+          style={{ backgroundImage: `url(${logicEmotionLight})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/60 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-background/20 backdrop-blur-[1px]" />
+        </div>
+        
+        {/* Background Image - Dark Mode */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden dark:block"
+          style={{ backgroundImage: `url(${logicEmotionDark})` }}
+        >
+          <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px]" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto text-center space-y-10">
-            <h2 className="text-3xl md:text-4xl font-display font-bold tracking-widest uppercase
+          <div className="max-w-5xl mx-auto text-center space-y-12">
+            <h2 className="text-5xl md:text-7xl font-display font-bold tracking-widest uppercase
               text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-glow to-accent
-              drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] dark:drop-shadow-[0_4px_20px_rgba(0,0,0,1)]">
               Our Mission
             </h2>
             
-            <div className="space-y-8 py-8">
-              <p className="text-3xl md:text-5xl font-display font-bold leading-tight
-                drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-                Where <span className="text-primary drop-shadow-[0_0_20px_rgba(92,189,185,0.8)]">LOGIC</span> meets <span className="text-accent drop-shadow-[0_0_20px_rgba(251,113,133,0.8)]">EMOTION</span>
+            <div className="space-y-6 py-4">
+              <p className="text-2xl md:text-4xl font-display font-bold leading-tight
+                text-foreground dark:text-white
+                drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_4px_20px_rgba(0,0,0,1)]">
+                Where <span className="text-primary dark:text-primary-glow drop-shadow-[0_0_24px_rgba(92,189,185,0.9)]">LOGIC</span> meets <span className="text-accent dark:text-accent drop-shadow-[0_0_24px_rgba(251,113,133,0.9)]">EMOTION</span>
               </p>
-              <p className="text-xl md:text-3xl font-display font-semibold leading-relaxed text-foreground
-                drop-shadow-[0_3px_10px_rgba(0,0,0,0.9)]">
+              <p className="text-xl md:text-2xl font-display font-semibold leading-relaxed 
+                text-foreground dark:text-white/95
+                drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_3px_16px_rgba(0,0,0,1)]">
                 Where reasoning confronts empathy, and every voice shapes moral truth.
               </p>
-              <p className="text-lg md:text-2xl font-display leading-relaxed text-foreground/90
-                drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+              <p className="text-lg md:text-xl font-display leading-relaxed 
+                text-foreground/90 dark:text-white/90
+                drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_2px_12px_rgba(0,0,0,1)]">
                 Think deeper. Debate smarter. Earn your influence.
               </p>
             </div>
@@ -153,7 +165,7 @@ const Index = () => {
             Join thousands of thinkers debating the toughest moral questions. Your brilliant perspective could earn you massive rewards!
           </p>
           <Link to="/discover">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-lg px-10 py-6 shadow-xl gap-2">
+            <Button size="lg" variant="gradientAccent" className="text-lg px-10 py-6 shadow-xl gap-2">
               <Sparkles className="w-5 h-5" />
               Start Your First Duel & Earn Now
             </Button>
