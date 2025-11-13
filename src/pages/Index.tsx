@@ -146,7 +146,7 @@ const Index = () => {
           </div>
 
           <div className="relative">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
               {trendingCases.map((caseData) => (
                 <div key={caseData.id} className="w-full">
                   <CaseCard caseData={caseData} />
