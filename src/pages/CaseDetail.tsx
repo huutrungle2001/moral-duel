@@ -122,7 +122,7 @@ const CaseDetail = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-6 pt-4">
-              <div className="flex items-center gap-2 text-accent font-bold text-xl">
+              <div className="flex items-center gap-2 text-primary font-bold text-xl">
                 <span className="text-3xl">{caseData.rewardPool}</span>
                 <span className="text-sm">tokens</span>
               </div>
@@ -231,14 +231,14 @@ const CaseDetail = () => {
 
             {caseData.yesArgument && (
               <div className="bg-yes/20 border-2 border-yes rounded-xl p-4">
-                <h2 className="text-lg font-bold text-yes-foreground font-serif">
+                <h2 className="text-lg font-bold text-foreground font-serif">
                   {caseData.yesArgument}
                 </h2>
               </div>
             )}
             
             <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
-              <p className="text-sm font-semibold text-accent">
+              <p className="text-sm font-semibold text-primary">
                 💰 Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
               </p>
             </div>
@@ -257,7 +257,7 @@ const CaseDetail = () => {
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">{arg.author}</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-accent font-semibold">{arg.potentialReward} tokens</span>
+                      <span className="text-primary font-semibold">{arg.potentialReward} tokens</span>
                       <Button
                         size="sm"
                         variant={votedArguments.includes(arg.id) ? "default" : "outline"}
@@ -397,14 +397,14 @@ const CaseDetail = () => {
 
             {caseData.noArgument && (
               <div className="bg-no/20 border-2 border-no rounded-xl p-4">
-                <h2 className="text-lg font-bold text-no-foreground font-serif">
+                <h2 className="text-lg font-bold text-foreground font-serif">
                   {caseData.noArgument}
                 </h2>
               </div>
             )}
             
             <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
-              <p className="text-sm font-semibold text-accent">
+              <p className="text-sm font-semibold text-primary">
                 💰 Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
               </p>
             </div>
@@ -423,7 +423,7 @@ const CaseDetail = () => {
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">{arg.author}</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-accent font-semibold">{arg.potentialReward} tokens</span>
+                      <span className="text-primary font-semibold">{arg.potentialReward} tokens</span>
                       <Button
                         size="sm"
                         variant={votedArguments.includes(arg.id) ? "default" : "outline"}
