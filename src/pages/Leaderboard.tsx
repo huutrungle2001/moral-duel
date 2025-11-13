@@ -65,26 +65,26 @@ const Leaderboard = () => {
   const getRankIcon = (rank: number) => {
     switch (rank) {
       case 1:
-        return <Crown className="w-8 h-8 text-yellow-500" />;
+        return <Crown className="w-8 h-8 text-white drop-shadow-lg" />;
       case 2:
-        return <Trophy className="w-7 h-7 text-gray-400" />;
+        return <Trophy className="w-7 h-7 text-white drop-shadow-lg" />;
       case 3:
-        return <Medal className="w-7 h-7 text-amber-600" />;
+        return <Medal className="w-7 h-7 text-white drop-shadow-lg" />;
       default:
-        return <Award className="w-6 h-6 text-accent" />;
+        return <Award className="w-6 h-6 text-primary" />;
     }
   };
 
   const getRankBg = (rank: number) => {
     switch (rank) {
       case 1:
-        return "bg-gradient-to-r from-yellow-500/20 to-amber-500/20 border-yellow-500/50";
+        return "bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-500 border-yellow-500 shadow-xl shadow-yellow-500/20";
       case 2:
-        return "bg-gradient-to-r from-gray-400/20 to-gray-500/20 border-gray-400/50";
+        return "bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 border-slate-400 shadow-xl shadow-slate-400/20";
       case 3:
-        return "bg-gradient-to-r from-amber-600/20 to-orange-500/20 border-amber-600/50";
+        return "bg-gradient-to-r from-orange-400 via-amber-600 to-orange-600 border-amber-600 shadow-xl shadow-amber-600/20";
       default:
-        return "bg-card border-border";
+        return "bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30 hover:border-primary/50 transition-all";
     }
   };
 
@@ -119,7 +119,7 @@ const Leaderboard = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-4">
             {leaderboardData.map((user) => (
-              <Card key={user.rank} className={`${getRankBg(user.rank)} border-2 transition-all hover:shadow-lg`}>
+              <Card key={user.rank} className={`${getRankBg(user.rank)} border-2 transition-all hover:shadow-2xl hover:scale-[1.02]`}>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-6">
                     {/* Rank Icon */}
@@ -129,18 +129,20 @@ const Leaderboard = () => {
 
                     {/* User Info */}
                     <div className="flex items-center gap-4 flex-1">
-                      <Avatar className="w-12 h-12 border-2 border-primary/20">
-                        <AvatarFallback className="bg-primary/10 text-primary font-bold">
+                      <Avatar className="w-12 h-12 border-2 border-white/30">
+                        <AvatarFallback className={`${user.rank <= 3 ? 'bg-white/90 text-gray-900' : 'bg-primary/10 text-primary'} font-bold`}>
                           {user.name.substring(0, 2).toUpperCase()}
                         </AvatarFallback>
                       </Avatar>
                       
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <h3 className="font-bold text-lg text-foreground">{user.name}</h3>
+                          <h3 className={`font-bold text-lg ${user.rank <= 3 ? 'text-white drop-shadow-md' : 'text-foreground'}`}>
+                            {user.name}
+                          </h3>
                           <span className="text-sm">{user.badge}</span>
                         </div>
-                        <p className="text-sm text-muted-foreground">
+                        <p className={`text-sm ${user.rank <= 3 ? 'text-white/90' : 'text-muted-foreground'}`}>
                           {user.wins} victories • Rank #{user.rank}
                         </p>
                       </div>
@@ -148,10 +150,10 @@ const Leaderboard = () => {
 
                     {/* Points */}
                     <div className="text-right">
-                      <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                      <div className={`text-3xl font-bold ${user.rank <= 3 ? 'text-white drop-shadow-lg' : 'bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent'}`}>
                         {user.points.toLocaleString()}
                       </div>
-                      <div className="text-sm text-muted-foreground">moral points</div>
+                      <div className={`text-sm ${user.rank <= 3 ? 'text-white/90' : 'text-muted-foreground'}`}>moral points</div>
                     </div>
                   </div>
                 </CardContent>
@@ -162,7 +164,7 @@ const Leaderboard = () => {
           {/* CTA Section */}
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">Want to see your name here?</p>
-            <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90">
+            <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground">
               Start Competing Now
             </Button>
           </div>

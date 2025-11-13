@@ -39,13 +39,13 @@ const Index = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/discover">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-lg px-8 gap-2 shadow-lg">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground text-lg px-8 gap-2 shadow-lg">
                   <Brain className="w-5 h-5" />
                   Join the vote now, show your intelligence!
                 </Button>
               </Link>
               <Link to="/create">
-                <Button size="lg" variant="outline" className="text-lg px-8 gap-2 border-2 shadow-md">
+                <Button size="lg" className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-accent-foreground text-lg px-8 gap-2 shadow-lg">
                   <Plus className="w-5 h-5" />
                   Create a Trend & Go Viral
                 </Button>
