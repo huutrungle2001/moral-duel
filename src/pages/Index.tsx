@@ -131,12 +131,12 @@ const Index = () => {
               <img 
                 src={logicEmotionLight} 
                 alt="Logic meets Emotion" 
-                className="w-full max-w-[280px] md:max-w-[350px] lg:max-w-[400px] h-auto object-contain dark:hidden"
+                className="w-full max-w-[280px] md:max-w-[350px] lg:max-w-[400px] h-auto object-contain dark:hidden drop-shadow-[0_0_40px_rgba(92,189,185,0.4)] hover:drop-shadow-[0_0_60px_rgba(92,189,185,0.6)] transition-all duration-500"
               />
               <img 
                 src={logicEmotionDark} 
                 alt="Logic meets Emotion" 
-                className="w-full max-w-[280px] md:max-w-[350px] lg:max-w-[400px] h-auto object-contain hidden dark:block"
+                className="w-full max-w-[280px] md:max-w-[350px] lg:max-w-[400px] h-auto object-contain hidden dark:block drop-shadow-[0_0_40px_rgba(92,189,185,0.5)] hover:drop-shadow-[0_0_60px_rgba(251,146,60,0.6)] transition-all duration-500"
               />
             </div>
             
