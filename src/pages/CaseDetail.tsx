@@ -107,7 +107,7 @@ const CaseDetail = () => {
         {/* Vote Instructions */}
         <div className="mb-6 p-4 bg-accent/10 border border-accent/20 rounded-lg">
           <p className="text-sm font-medium text-foreground">
-            💡 Vote for the top 3 arguments that you find most compelling ({votedArguments.length}/3 selected)
+            💡 Give your choice, comment and vote the top 3 arguments that you find most compelling ({votedArguments.length}/3 selected)
           </p>
         </div>
 
@@ -122,6 +122,27 @@ const CaseDetail = () => {
             >
               I Vote YES
             </Button>
+
+            {/* Comment Section - Appears after voting YES */}
+            {selectedSide === "yes" && !hasVoted && (
+              <Card className="p-4 bg-yes/5 border-yes/30">
+                <h4 className="text-sm font-semibold text-foreground mb-3">Share Your Reasoning</h4>
+                <Textarea
+                  placeholder="Explain why you voted YES (max 300 characters)..."
+                  value={userArgument}
+                  onChange={(e) => setUserArgument(e.target.value.slice(0, 300))}
+                  className="min-h-[100px] mb-2"
+                />
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-muted-foreground">
+                    {userArgument.length}/300
+                  </span>
+                  <Button onClick={handleSubmitArgument} size="sm" className="bg-yes hover:bg-yes/90">
+                    Submit
+                  </Button>
+                </div>
+              </Card>
+            )}
 
             <div className="bg-yes/20 border-2 border-yes rounded-xl p-4">
               <h2 className="text-lg font-bold text-yes-foreground font-serif">
@@ -213,6 +234,27 @@ const CaseDetail = () => {
               I Vote NO
             </Button>
 
+            {/* Comment Section - Appears after voting NO */}
+            {selectedSide === "no" && !hasVoted && (
+              <Card className="p-4 bg-no/5 border-no/30">
+                <h4 className="text-sm font-semibold text-foreground mb-3">Share Your Reasoning</h4>
+                <Textarea
+                  placeholder="Explain why you voted NO (max 300 characters)..."
+                  value={userArgument}
+                  onChange={(e) => setUserArgument(e.target.value.slice(0, 300))}
+                  className="min-h-[100px] mb-2"
+                />
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-muted-foreground">
+                    {userArgument.length}/300
+                  </span>
+                  <Button onClick={handleSubmitArgument} size="sm" className="bg-no hover:bg-no/90">
+                    Submit
+                  </Button>
+                </div>
+              </Card>
+            )}
+
             <div className="bg-no/20 border-2 border-no rounded-xl p-4">
               <h2 className="text-lg font-bold text-no-foreground font-serif">
                 {caseData.noArgument}
@@ -246,29 +288,6 @@ const CaseDetail = () => {
             ))}
           </div>
         </div>
-
-        {/* Submit Your Argument Section */}
-        {!hasVoted && (
-          <Card className="p-6 mt-8 max-w-3xl mx-auto">
-            <h3 className="text-xl font-bold text-foreground mb-4 font-serif">Submit Your Argument</h3>
-            <div className="space-y-4">
-              <Textarea
-                placeholder="Write your argument (max 300 characters)..."
-                value={userArgument}
-                onChange={(e) => setUserArgument(e.target.value.slice(0, 300))}
-                className="min-h-[120px]"
-              />
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">
-                  {userArgument.length}/300
-                </span>
-                <Button onClick={handleSubmitArgument} className="bg-primary">
-                  Submit Argument
-                </Button>
-              </div>
-            </div>
-          </Card>
-        )}
       </div>
     </div>
   );
