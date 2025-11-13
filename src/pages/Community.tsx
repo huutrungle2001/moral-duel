@@ -8,48 +8,56 @@ const Community = () => {
   const mockPosts = [
     {
       id: 1,
-      author: "0xABC...123",
-      avatar: "A1",
+      author: "CryptoPhilosopher420",
+      avatar: "CP",
       content: "Today I earned 240 tokens by defending the importance of privacy in relationships. Logic wins! 🧠",
       type: "reward",
       time: "2 hours ago"
     },
     {
       id: 2,
-      author: "0xDEF...456",
-      avatar: "D2",
+      author: "DebateLordSupreme",
+      avatar: "DL",
+      content: "This app is absolutely brilliant! Finally a place where I can argue with strangers AND get paid for it. My therapist says I'm making progress. 😂",
+      type: "shoutout",
+      time: "4 hours ago"
+    },
+    {
+      id: 3,
+      author: "MindReaderRefuser",
+      avatar: "MR",
       content: "Mini moral game: If you could read your partner's mind for one day, would you? The Oracle says NO. Privacy is sacred.",
       type: "game",
       time: "5 hours ago"
     },
     {
-      id: 3,
-      author: "0xGHI...789",
-      avatar: "G3",
+      id: 4,
+      author: "EthicsNinja42",
+      avatar: "EN",
       content: "Just unlocked 'Bậc thầy lý lẽ' badge! My arguments on workplace ethics resonated with the community 💬",
       type: "achievement",
       time: "1 day ago"
     },
     {
-      id: 4,
-      author: "0xJKL...012",
-      avatar: "J4",
-      content: "\"Empathy without boundaries becomes self-destruction.\" — A reflection from today's debates",
+      id: 5,
+      author: "SocratesReborn",
+      avatar: "SR",
+      content: "\"The unexamined life is not worth living, but the over-examined life leads to analysis paralysis. Balance is wisdom.\" — Real moral reflection",
       type: "quote",
       time: "1 day ago"
     },
     {
-      id: 5,
-      author: "0xMNO...345",
-      avatar: "M5",
+      id: 6,
+      author: "TokenHunterPro",
+      avatar: "TH",
       content: "Created a case about elderly employment rights that got 150+ participants! Bonus rewards incoming 🔥",
       type: "trending",
       time: "2 days ago"
     },
     {
-      id: 6,
-      author: "0xPQR...678",
-      avatar: "P6",
+      id: 7,
+      author: "ProfitVsCompassion",
+      avatar: "PC",
       content: "Mini moral game: Should companies prioritize profit over employee wellbeing? Cast your vote in Discover!",
       type: "game",
       time: "2 days ago"
@@ -77,7 +85,8 @@ const Community = () => {
       achievement: { label: "Achievement", className: "bg-primary/20 text-primary-foreground border-primary" },
       game: { label: "Game", className: "bg-primary-glow/20 text-primary border-primary-glow" },
       trending: { label: "Trending", className: "bg-destructive/20 text-destructive-foreground border-destructive" },
-      quote: { label: "Reflection", className: "bg-muted text-muted-foreground border-border" }
+      quote: { label: "Reflection", className: "bg-muted text-muted-foreground border-border" },
+      shoutout: { label: "Shoutout", className: "bg-primary/20 text-primary-foreground border-primary" }
     };
     return badges[type] || badges.quote;
   };
@@ -96,7 +105,11 @@ const Community = () => {
         </div>
 
         {/* Info Banner */}
-        <Card className="p-6 mb-8 bg-gradient-to-br from-primary/10 to-primary-glow/10 border-primary/20">
+        <Card className="p-6 mb-8 bg-background/95 backdrop-blur-sm
+          border-2 border-primary/30
+          dark:border-primary/40
+          shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(0,0,0,0.05)]
+          dark:shadow-[0_6px_25px_rgba(225,179,130,0.15),0_3px_10px_rgba(225,179,130,0.1)]">
           <div className="flex items-start gap-4">
             <Sparkles className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
             <div>
@@ -114,7 +127,14 @@ const Community = () => {
           {mockPosts.map((post) => {
             const badge = getPostBadge(post.type);
             return (
-              <Card key={post.id} className="p-6 hover:shadow-md transition-shadow">
+              <Card key={post.id} className="p-6 bg-background/95 backdrop-blur-sm
+                border-2 border-border/60 hover:border-primary/50
+                dark:border-primary/30 dark:hover:border-primary/50
+                shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(0,0,0,0.05)]
+                hover:shadow-[0_8px_30px_rgba(92,189,185,0.25),0_4px_12px_rgba(0,0,0,0.08)]
+                dark:shadow-[0_6px_25px_rgba(225,179,130,0.15),0_3px_10px_rgba(225,179,130,0.1)]
+                dark:hover:shadow-[0_12px_40px_rgba(225,179,130,0.25),0_6px_16px_rgba(225,179,130,0.15)]
+                transition-all duration-300">
                 <div className="flex gap-4">
                   <Avatar className="w-12 h-12 flex-shrink-0">
                     <AvatarFallback className="bg-gradient-to-br from-primary to-primary-glow text-primary-foreground font-semibold">
