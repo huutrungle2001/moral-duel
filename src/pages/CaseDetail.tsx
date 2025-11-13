@@ -229,12 +229,17 @@ const CaseDetail = () => {
               </Card>
             )}
 
-            <div className="bg-yes/20 border-2 border-yes rounded-xl p-4">
-              <h2 className="text-lg font-bold text-yes-foreground font-serif">
-                {caseData.yesArgument}
-              </h2>
-              <p className="text-xs text-muted-foreground mt-1">
-                Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
+            {caseData.yesArgument && (
+              <div className="bg-yes/20 border-2 border-yes rounded-xl p-4">
+                <h2 className="text-lg font-bold text-yes-foreground font-serif">
+                  {caseData.yesArgument}
+                </h2>
+              </div>
+            )}
+            
+            <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
+              <p className="text-sm font-semibold text-accent">
+                💰 Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
               </p>
             </div>
 
@@ -273,48 +278,66 @@ const CaseDetail = () => {
           {/* MIDDLE: Battle Stats */}
           <div className="flex flex-col justify-center">
             <Card className="p-8 relative overflow-hidden bg-background/95 backdrop-blur-sm
-              border-2 border-border/60
-              dark:border-primary/30
-              shadow-[0_4px_20px_rgba(92,189,185,0.2),0_2px_8px_rgba(0,0,0,0.08)]
-              dark:shadow-[0_6px_25px_rgba(225,179,130,0.2),0_3px_10px_rgba(225,179,130,0.15)]">
-              <div className="absolute inset-0 bg-gradient-duel opacity-20" />
+              border-2 border-destructive/40
+              dark:border-destructive/50
+              shadow-[0_8px_30px_rgba(239,68,68,0.3),0_4px_15px_rgba(239,68,68,0.2)]
+              dark:shadow-[0_10px_40px_rgba(239,68,68,0.4),0_5px_20px_rgba(239,68,68,0.25)]">
+              {/* Animated fire gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-destructive/20 via-orange-500/20 to-yellow-500/20 opacity-40 animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-duel opacity-15" />
+              
+              {/* Fire emojis decoration */}
+              <div className="absolute top-2 left-2 text-2xl opacity-60">🔥</div>
+              <div className="absolute top-2 right-2 text-2xl opacity-60">🔥</div>
+              <div className="absolute bottom-2 left-1/4 text-xl opacity-50">⚔️</div>
+              <div className="absolute bottom-2 right-1/4 text-xl opacity-50">💥</div>
               
               <div className="relative z-10 space-y-6">
                 <div className="text-center">
-                  <h2 className="text-3xl font-bold text-foreground mb-2 font-serif">Battle Stats</h2>
-                  <p className="text-sm text-muted-foreground">Live vote distribution</p>
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="text-2xl">🔥</span>
+                    <h2 className="text-3xl font-bold text-foreground font-serif">Battle Arena</h2>
+                    <span className="text-2xl">🔥</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground font-semibold">Live debate intensity</p>
                 </div>
 
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-bold text-yes-foreground">YES</span>
+                      <span className="text-sm font-bold text-yes-foreground flex items-center gap-1">
+                        <span className="text-lg">💚</span> YES
+                      </span>
                       <span className="text-2xl font-bold text-yes-foreground">{yesPercentage.toFixed(0)}%</span>
                     </div>
-                    <div className="h-4 rounded-full overflow-hidden bg-muted">
-                      <div className="h-full bg-yes transition-all duration-500" style={{ width: `${yesPercentage}%` }} />
+                    <div className="h-4 rounded-full overflow-hidden bg-muted border border-border/50 shadow-inner">
+                      <div className="h-full bg-gradient-to-r from-yes to-yes/80 transition-all duration-500 shadow-lg" 
+                        style={{ width: `${yesPercentage}%` }} />
                     </div>
                     <p className="text-xs text-muted-foreground">{caseData.yesVotes} votes</p>
                   </div>
 
                   <div className="text-center py-2">
-                    <span className="text-4xl font-bold text-muted-foreground">VS</span>
+                    <span className="text-4xl font-bold text-destructive drop-shadow-lg">⚔️ VS ⚔️</span>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-bold text-no-foreground">NO</span>
+                      <span className="text-sm font-bold text-no-foreground flex items-center gap-1">
+                        <span className="text-lg">❤️</span> NO
+                      </span>
                       <span className="text-2xl font-bold text-no-foreground">{noPercentage.toFixed(0)}%</span>
                     </div>
-                    <div className="h-4 rounded-full overflow-hidden bg-muted">
-                      <div className="h-full bg-no transition-all duration-500" style={{ width: `${noPercentage}%` }} />
+                    <div className="h-4 rounded-full overflow-hidden bg-muted border border-border/50 shadow-inner">
+                      <div className="h-full bg-gradient-to-l from-no to-no/80 transition-all duration-500 shadow-lg" 
+                        style={{ width: `${noPercentage}%` }} />
                     </div>
                     <p className="text-xs text-muted-foreground">{caseData.noVotes} votes</p>
                   </div>
                 </div>
 
-                <div className="text-center pt-4 border-t border-border">
-                  <p className="text-sm text-muted-foreground">Total Participants</p>
+                <div className="text-center pt-4 border-t border-border/50">
+                  <p className="text-sm text-muted-foreground font-semibold">🎯 Total Warriors</p>
                   <p className="text-3xl font-bold text-foreground">{totalVotes}</p>
                 </div>
               </div>
@@ -370,12 +393,17 @@ const CaseDetail = () => {
               </Card>
             )}
 
-            <div className="bg-no/20 border-2 border-no rounded-xl p-4">
-              <h2 className="text-lg font-bold text-no-foreground font-serif">
-                {caseData.noArgument}
-              </h2>
-              <p className="text-xs text-muted-foreground mt-1">
-                Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
+            {caseData.noArgument && (
+              <div className="bg-no/20 border-2 border-no rounded-xl p-4">
+                <h2 className="text-lg font-bold text-no-foreground font-serif">
+                  {caseData.noArgument}
+                </h2>
+              </div>
+            )}
+            
+            <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
+              <p className="text-sm font-semibold text-accent">
+                💰 Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
               </p>
             </div>
 
