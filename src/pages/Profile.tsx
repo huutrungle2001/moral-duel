@@ -103,7 +103,7 @@ const Profile = () => {
               </p>
             <Button
               onClick={handleConnect}
-              className="bg-gradient-to-r from-secondary to-accent hover:opacity-90 gap-2"
+              className="bg-gradient-to-r from-secondary via-accent to-primary hover:opacity-90 hover:scale-105 transition-all gap-2 text-white dark:text-primary-foreground shadow-lg"
               size="lg"
             >
                 <WalletIcon className="w-5 h-5" />
