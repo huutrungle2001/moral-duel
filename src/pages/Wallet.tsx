@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Wallet as WalletIcon, Award, TrendingUp, Download } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
@@ -6,7 +7,18 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
 const Wallet = () => {
+  const [isConnected, setIsConnected] = useState(false);
   const walletAddress = "0xABC123DEF456GHI789JKL012MNO345PQR678STU901";
+
+  const handleConnect = () => {
+    setIsConnected(true);
+    toast.success("Wallet connected successfully!");
+  };
+
+  const handleDisconnect = () => {
+    setIsConnected(false);
+    toast.success("Wallet disconnected");
+  };
 
   const handleClaim = () => {
     toast.success("Rewards claimed! Check your wallet.");
@@ -39,8 +51,30 @@ const Wallet = () => {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-foreground mb-8">My Wallet</h1>
 
-        {/* Wallet Address */}
-        <Card className="p-6 mb-8 bg-gradient-to-br from-card to-primary/5">
+        {/* Connect Wallet Card */}
+        {!isConnected ? (
+          <Card className="p-8 mb-8 text-center bg-gradient-to-br from-primary/5 to-primary-glow/5">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center">
+              <WalletIcon className="w-8 h-8 text-primary-foreground" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground mb-2">Connect Your Wallet</h2>
+            <p className="text-muted-foreground mb-6">
+              Connect your Neo wallet to view your balance, claim rewards, and participate in debates
+            </p>
+            <Button
+              onClick={handleConnect}
+              className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 gap-2"
+              size="lg"
+            >
+              <WalletIcon className="w-5 h-5" />
+              Connect NeoLine Wallet
+            </Button>
+            <p className="text-xs text-muted-foreground mt-4">
+              Don't have a wallet? <a href="#" className="text-primary hover:underline">Install NeoLine</a>
+            </p>
+          </Card>
+        ) : (
+          <Card className="p-6 mb-8 bg-gradient-to-br from-card to-primary/5">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-muted-foreground mb-1">Connected Wallet</p>
@@ -48,9 +82,14 @@ const Wallet = () => {
                 {walletAddress}
               </p>
             </div>
-            <Button variant="outline" size="sm">Disconnect</Button>
+            <Button variant="outline" size="sm" onClick={handleDisconnect}>Disconnect</Button>
           </div>
         </Card>
+        )}
+
+        {/* Show stats only when connected */}
+        {isConnected && (
+          <>
 
         {/* Balance Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -138,6 +177,8 @@ const Wallet = () => {
             ))}
           </div>
         </Card>
+        </>
+        )}
       </div>
     </div>
   );
