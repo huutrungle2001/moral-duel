@@ -26,7 +26,7 @@ const Profile = () => {
 
   const userProfile = {
     name: "Thạc sĩ bé iu",
-    email: "thinker@moraloracle.com",
+    email: "thacsibeiu83@gmail.com",
     joinDate: "January 2024",
     rank: "#1",
   };
@@ -54,7 +54,7 @@ const Profile = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-foreground mb-8">Thinking Profile</h1>
 
@@ -79,9 +79,7 @@ const Profile = () => {
                     </span>
                   </div>
                 </div>
-                <Badge className="bg-accent text-accent-foreground">
-                  Rank {userProfile.rank}
-                </Badge>
+                <Badge className="bg-accent text-accent-foreground">Rank {userProfile.rank}</Badge>
               </div>
             </div>
           </div>
@@ -93,7 +91,7 @@ const Profile = () => {
             <WalletIcon className="w-6 h-6" />
             My Wallet
           </h2>
-          
+
           {!isConnected ? (
             <div className="text-center py-8 bg-gradient-to-br from-primary/5 to-primary-glow/5 rounded-lg">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center">
@@ -112,7 +110,10 @@ const Profile = () => {
                 Connect NeoLine Wallet
               </Button>
               <p className="text-xs text-muted-foreground mt-4">
-                Don't have a wallet? <a href="#" className="text-primary hover:underline">Install NeoLine</a>
+                Don't have a wallet?{" "}
+                <a href="#" className="text-primary hover:underline">
+                  Install NeoLine
+                </a>
               </p>
             </div>
           ) : (
@@ -120,11 +121,11 @@ const Profile = () => {
               <div className="flex items-center justify-between mb-6 p-4 bg-muted/50 rounded-lg">
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">Connected Wallet</p>
-                  <p className="text-sm font-mono font-semibold text-foreground break-all">
-                    {walletAddress}
-                  </p>
+                  <p className="text-sm font-mono font-semibold text-foreground break-all">{walletAddress}</p>
                 </div>
-                <Button variant="outline" size="sm" onClick={handleDisconnect}>Disconnect</Button>
+                <Button variant="outline" size="sm" onClick={handleDisconnect}>
+                  Disconnect
+                </Button>
               </div>
 
               {/* Balance Cards */}
@@ -201,7 +202,7 @@ const Profile = () => {
               {mockBadges.map((badge) => (
                 <div key={badge.id} className="flex items-center justify-between">
                   <div>
-                    <p className={`font-medium ${badge.earned ? 'text-foreground' : 'text-muted-foreground'}`}>
+                    <p className={`font-medium ${badge.earned ? "text-foreground" : "text-muted-foreground"}`}>
                       {badge.name}
                     </p>
                     <p className="text-xs text-muted-foreground">{badge.desc}</p>
