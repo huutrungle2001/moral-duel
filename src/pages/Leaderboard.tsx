@@ -16,7 +16,7 @@ interface LeaderboardUser {
 
 const leaderboardData: LeaderboardUser[] = [
   { rank: 1, name: "Thạc sĩ bé iu", points: 15240, wins: 127, badge: "Nhà hiền triết" },
-  { rank: 2, name: "Huutrungle", points: 14890, wins: 115, badge: "Bậc thầy lý lẽ" },
+  { rank: 2, name: "Trung Le Huu", points: 14890, wins: 115, badge: "Bậc thầy lý lẽ" },
   { rank: 3, name: "MoralGuru", points: 13650, wins: 98, badge: "Người tạo trend" },
   { rank: 4, name: "DebateChamp", points: 12340, wins: 89, badge: "Bậc thầy lý lẽ" },
   { rank: 5, name: "ThinkTankPro", points: 11890, wins: 82, badge: "Nhà hiền triết" },
@@ -37,7 +37,7 @@ const Leaderboard = () => {
       return Math.random() * (max - min) + min;
     }
 
-    const interval: any = setInterval(function() {
+    const interval: any = setInterval(function () {
       const timeLeft = animationEnd - Date.now();
 
       if (timeLeft <= 0) {
@@ -45,35 +45,35 @@ const Leaderboard = () => {
       }
 
       const particleCount = 3;
-      
+
       // Sparkle bursts from multiple points
       confetti({
         particleCount,
         angle: 60,
         spread: 55,
         origin: { x: 0, y: 0.6 },
-        colors: ['#FFD700', '#FFA500', '#FF6347', '#87CEEB', '#9370DB'],
-        shapes: ['star'],
+        colors: ["#FFD700", "#FFA500", "#FF6347", "#87CEEB", "#9370DB"],
+        shapes: ["star"],
         scalar: 1.2,
         drift: 0,
         gravity: 0.8,
         ticks: 400,
-        startVelocity: 45
+        startVelocity: 45,
       });
       confetti({
         particleCount,
         angle: 120,
         spread: 55,
         origin: { x: 1, y: 0.6 },
-        colors: ['#FFD700', '#FFA500', '#FF6347', '#87CEEB', '#9370DB'],
-        shapes: ['star'],
+        colors: ["#FFD700", "#FFA500", "#FF6347", "#87CEEB", "#9370DB"],
+        shapes: ["star"],
         scalar: 1.2,
         drift: 0,
         gravity: 0.8,
         ticks: 400,
-        startVelocity: 45
+        startVelocity: 45,
       });
-      
+
       // Center burst
       if (Math.random() < 0.3) {
         confetti({
@@ -81,13 +81,13 @@ const Leaderboard = () => {
           angle: 90,
           spread: 360,
           origin: { x: 0.5, y: 0.5 },
-          colors: ['#FFD700', '#FFA500', '#FF6347'],
-          shapes: ['star', 'circle'],
+          colors: ["#FFD700", "#FFA500", "#FF6347"],
+          shapes: ["star", "circle"],
           scalar: 1.5,
           drift: randomInRange(-0.5, 0.5),
           gravity: 0.6,
           ticks: 500,
-          startVelocity: 35
+          startVelocity: 35,
         });
       }
     }, 150);
@@ -124,7 +124,7 @@ const Leaderboard = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative overflow-hidden py-16 bg-gradient-to-b from-primary/10 to-transparent">
         <div className="container mx-auto px-4">
@@ -133,13 +133,13 @@ const Leaderboard = () => {
               <Sparkles className="w-4 h-4" />
               <span className="text-sm font-medium">Hall of Champions</span>
             </div>
-            
+
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               <span className="text-foreground dark:bg-gradient-to-r dark:from-primary dark:to-primary-glow dark:bg-clip-text dark:text-transparent">
                 Leaderboard
               </span>
             </h1>
-            
+
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Celebrate the brightest minds who dominate the moral arena with logic, empathy, and wisdom.
             </p>
@@ -152,30 +152,35 @@ const Leaderboard = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-4">
             {leaderboardData.map((user) => (
-              <Card key={user.rank} className={`${getRankBg(user.rank)} border-2 transition-all hover:shadow-2xl hover:scale-[1.02]`}>
+              <Card
+                key={user.rank}
+                className={`${getRankBg(user.rank)} border-2 transition-all hover:shadow-2xl hover:scale-[1.02]`}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center gap-6">
                     {/* Rank Icon */}
-                    <div className="flex-shrink-0">
-                      {getRankIcon(user.rank)}
-                    </div>
+                    <div className="flex-shrink-0">{getRankIcon(user.rank)}</div>
 
                     {/* User Info */}
                     <div className="flex items-center gap-4 flex-1">
                       <Avatar className="w-12 h-12 border-2 border-white/30">
-                        <AvatarFallback className={`${user.rank <= 3 ? 'bg-white/90 text-gray-900' : 'bg-primary/10 text-primary'} font-bold`}>
+                        <AvatarFallback
+                          className={`${user.rank <= 3 ? "bg-white/90 text-gray-900" : "bg-primary/10 text-primary"} font-bold`}
+                        >
                           {user.name.substring(0, 2).toUpperCase()}
                         </AvatarFallback>
                       </Avatar>
-                      
+
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <h3 className={`font-bold text-lg ${user.rank <= 3 ? 'text-white drop-shadow-md' : 'text-foreground'}`}>
+                          <h3
+                            className={`font-bold text-lg ${user.rank <= 3 ? "text-white drop-shadow-md" : "text-foreground"}`}
+                          >
                             {user.name}
                           </h3>
                           <span className="text-sm">{user.badge}</span>
                         </div>
-                        <p className={`text-sm ${user.rank <= 3 ? 'text-white/90' : 'text-foreground/60'}`}>
+                        <p className={`text-sm ${user.rank <= 3 ? "text-white/90" : "text-foreground/60"}`}>
                           {user.wins} victories • Rank #{user.rank}
                         </p>
                       </div>
@@ -183,10 +188,14 @@ const Leaderboard = () => {
 
                     {/* Points */}
                     <div className="text-right">
-                      <div className={`text-3xl font-bold ${user.rank <= 3 ? 'text-white drop-shadow-lg' : 'text-primary'}`}>
+                      <div
+                        className={`text-3xl font-bold ${user.rank <= 3 ? "text-white drop-shadow-lg" : "text-primary"}`}
+                      >
                         {user.points.toLocaleString()}
                       </div>
-                      <div className={`text-sm font-medium ${user.rank <= 3 ? 'text-white/90' : 'text-foreground/70'}`}>moral points</div>
+                      <div className={`text-sm font-medium ${user.rank <= 3 ? "text-white/90" : "text-foreground/70"}`}>
+                        moral points
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -197,7 +206,10 @@ const Leaderboard = () => {
           {/* CTA Section */}
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">Want to see your name here?</p>
-            <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground"
+            >
               Start Competing Now
             </Button>
           </div>
