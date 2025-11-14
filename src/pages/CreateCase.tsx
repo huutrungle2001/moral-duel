@@ -109,7 +109,7 @@ const CreateCase = () => {
             {/* Info Box */}
             <div className="p-4 bg-accent/10 border border-accent/20 rounded-lg">
               <p className="text-sm text-foreground">
-                <strong>💡 Pro Tip:</strong> Cases that generate ≥100 participants earn you bonus rewards! 
+                <strong>Pro Tip:</strong> Cases that generate ≥100 participants earn you bonus rewards! 
                 Make your dilemma thought-provoking and controversial for maximum engagement.
               </p>
             </div>

@@ -74,7 +74,7 @@ const Index = () => {
                 </div>
               </div>
               <p className="text-sm text-muted-foreground">
-                🔥 Create trending cases to earn <span className="font-semibold text-primary">massive bonus rewards</span>
+                Create trending cases to earn <span className="font-semibold text-primary">massive bonus rewards</span>
               </p>
             </div>
           </div>

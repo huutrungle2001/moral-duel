@@ -50,7 +50,7 @@ const Community = () => {
       id: 6,
       author: "TokenHunterPro",
       avatar: "TH",
-      content: "Created a case about elderly employment rights that got 150+ participants! Bonus rewards incoming 🔥",
+      content: "Created a case about elderly employment rights that got 150+ participants! Bonus rewards incoming",
       type: "trending",
       time: "2 days ago"
     },
@@ -116,7 +116,7 @@ const Community = () => {
               <h3 className="text-lg font-bold text-foreground mb-2">Welcome to the Community Feed</h3>
               <p className="text-muted-foreground leading-relaxed">
                 This is a reply-free showcase area where members share their earnings, moral reflections, 
-                mini games, and achievements. No debates here—just inspiration and celebration! 🎉
+                mini games, and achievements. No debates here—just inspiration and celebration!
               </p>
             </div>
           </div>

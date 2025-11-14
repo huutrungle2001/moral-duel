@@ -85,7 +85,7 @@ const CaseDetail = () => {
     }
     setHasWrittenArgument(true);
     setHasVoted(true);
-    toast.success("🎉 Vote complete! Your argument has been submitted successfully!");
+    toast.success("Vote complete! Your argument has been submitted successfully!");
     setUserArgument("");
   };
 
@@ -152,8 +152,7 @@ const CaseDetail = () => {
               <Card className="p-4 bg-background/95 backdrop-blur-sm border-2 border-yes/30 
                 shadow-[0_4px_15px_rgba(92,189,185,0.2)]
                 dark:shadow-[0_4px_15px_rgba(225,179,130,0.2)]">
-                <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <span className="text-lg">3️⃣</span>
+                <h4 className="text-sm font-semibold text-foreground mb-3">
                   Share Your Reasoning
                 </h4>
                 <Textarea
@@ -188,7 +187,7 @@ const CaseDetail = () => {
             
             <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
               <p className="text-sm font-semibold text-primary">
-                💰 Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
+                Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
               </p>
             </div>
 
@@ -297,7 +296,7 @@ const CaseDetail = () => {
 
               {/* Bottom Stats - Centered */}
               <div className="relative z-10 text-center py-4 border-t border-foreground/10 bg-gradient-to-r from-cyan-500/5 via-transparent to-red-500/5">
-                <p className="text-sm text-muted-foreground font-semibold mb-1">⚔️ Battle Arena</p>
+                <p className="text-sm text-muted-foreground font-semibold mb-1">Battle Arena</p>
                 <p className="text-2xl font-bold text-foreground">{totalVotes.toLocaleString()} <span className="text-sm text-muted-foreground">total warriors</span></p>
               </div>
             </div>
@@ -318,8 +317,7 @@ const CaseDetail = () => {
             {selectedSide === "no" && hasLiked && !hasVoted && (
               <Card className="p-4 bg-background/95 backdrop-blur-sm border-2 border-no/30
                 shadow-[0_4px_15px_rgba(239,68,68,0.2)]">
-                <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <span className="text-lg">3️⃣</span>
+                <h4 className="text-sm font-semibold text-foreground mb-3">
                   Share Your Reasoning
                 </h4>
                 <Textarea
@@ -354,7 +352,7 @@ const CaseDetail = () => {
 
             <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
               <p className="text-sm font-semibold text-primary">
-                💰 Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
+                Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens
               </p>
             </div>
 

@@ -28,9 +28,9 @@ const Wallet = () => {
   };
 
   const mockBadges = [
-    { id: 1, name: "🧠 Nhà hiền triết", desc: "Won 5 consecutive duels", earned: true },
-    { id: 2, name: "💬 Bậc thầy lý lẽ", desc: "Top argument 3 times", earned: true },
-    { id: 3, name: "🔥 Người tạo trend", desc: "Created a case with ≥100 participants", earned: false },
+    { id: 1, name: "Nhà hiền triết", desc: "Won 5 consecutive duels", earned: true },
+    { id: 2, name: "Bậc thầy lý lẽ", desc: "Top argument 3 times", earned: true },
+    { id: 3, name: "Người tạo trend", desc: "Created a case with ≥100 participants", earned: false },
   ];
 
   const recentActivity = [

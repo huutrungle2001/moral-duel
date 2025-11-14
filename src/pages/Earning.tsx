@@ -12,13 +12,13 @@ const Earning = () => {
       reward: "500 bonus tokens"
     },
     {
-      icon: "💬",
+      icon: "📝",
       name: "Bậc thầy lý lẽ",
       desc: "Get top argument 3 times",
       reward: "300 bonus tokens"
     },
     {
-      icon: "🔥",
+      icon: "🌟",
       name: "Người tạo trend",
       desc: "Create a case with ≥100 participants",
       reward: "1000 bonus tokens"
@@ -144,7 +144,7 @@ const Earning = () => {
         <div className="max-w-4xl mx-auto mt-12">
           <Card className="p-8 bg-gradient-to-br from-primary/10 to-primary-glow/10 border-primary/20">
             <div className="flex items-start gap-4">
-              <div className="text-4xl">🔥</div>
+              <TrendingUp className="w-10 h-10 text-primary" />
               <div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Create Viral Cases & Earn More</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
