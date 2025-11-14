@@ -175,6 +175,13 @@ export const mockArguments = {
         content: "Kinh doanh là về kết quả. Tình cảm không thể thay thế hiệu suất.",
         votes: 89,
         potentialReward: 45
+      },
+      {
+        id: "a8b",
+        author: "Anonymous",
+        content: "Người trẻ làm việc nhanh hơn thì tốt hơn rồi.",
+        votes: 18,
+        potentialReward: 10
       }
     ],
     no: [
@@ -191,6 +198,13 @@ export const mockArguments = {
         content: "Sa thải ông ấy sẽ gửi thông điệp tồi đến toàn bộ nhân viên: lòng trung thành không có giá trị.",
         votes: 178,
         potentialReward: 90
+      },
+      {
+        id: "a10b",
+        author: "NguyenVanA",
+        content: "Ông ấy là người tốt, thấy tội nghiệp.",
+        votes: 22,
+        potentialReward: 12
       }
     ]
   },
