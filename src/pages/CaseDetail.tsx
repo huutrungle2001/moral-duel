@@ -227,21 +227,20 @@ const CaseDetail = () => {
           {/* MIDDLE: Battle Stats */}
           <div className="flex flex-col justify-center">
             <Card className="p-8 relative overflow-hidden bg-background/95 backdrop-blur-sm
-              border-2 border-destructive/40
-              dark:border-destructive/50
-              shadow-[0_8px_30px_rgba(239,68,68,0.3),0_4px_15px_rgba(239,68,68,0.2),0_0_60px_rgba(255,165,0,0.15)]
+              border-2 border-primary/50 dark:border-destructive/50
+              shadow-[0_8px_30px_rgba(92,189,185,0.25),0_4px_15px_rgba(239,68,68,0.15),0_0_60px_rgba(251,191,36,0.1)]
               dark:shadow-[0_10px_40px_rgba(239,68,68,0.4),0_5px_20px_rgba(239,68,68,0.25),0_0_80px_rgba(255,165,0,0.2)]">
               
-              {/* Layered fire effect backgrounds */}
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-600/20 via-red-500/15 to-yellow-400/10 animate-[pulse_3s_ease-in-out_infinite]" />
-              <div className="absolute inset-0 bg-gradient-to-br from-red-500/15 via-orange-500/20 to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-yellow-500/10 via-red-600/15 to-orange-400/10 animate-[pulse_5s_ease-in-out_infinite_1s]" />
+              {/* Layered gradient effect backgrounds */}
+              <div className="absolute inset-0 bg-gradient-to-t from-amber-400/12 via-rose-400/10 to-cyan-300/8 dark:from-orange-600/20 dark:via-red-500/15 dark:to-yellow-400/10 animate-[pulse_3s_ease-in-out_infinite]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-400/10 via-orange-400/12 to-transparent dark:from-red-500/15 dark:via-orange-500/20 dark:to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-yellow-400/8 via-red-500/10 to-teal-300/8 dark:from-yellow-500/10 dark:via-red-600/15 dark:to-orange-400/10 animate-[pulse_5s_ease-in-out_infinite_1s]" />
               
-              {/* Fire glow edges */}
-              <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-orange-500/20 to-transparent blur-xl" />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-red-500/20 to-transparent blur-xl" />
-              <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-orange-500/15 to-transparent blur-xl" />
-              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-red-500/15 to-transparent blur-xl" />
+              {/* Glow edges */}
+              <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-amber-300/15 dark:from-orange-500/20 to-transparent blur-xl" />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-rose-300/15 dark:from-red-500/20 to-transparent blur-xl" />
+              <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-teal-300/12 dark:from-orange-500/15 to-transparent blur-xl" />
+              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-pink-300/12 dark:from-red-500/15 to-transparent blur-xl" />
               
               <div className="relative z-10 space-y-6">
                 <div className="text-center">
