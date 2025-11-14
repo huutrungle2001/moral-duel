@@ -15,8 +15,8 @@ interface LeaderboardUser {
 }
 
 const leaderboardData: LeaderboardUser[] = [
-  { rank: 1, name: "PhilosopherKing", points: 15240, wins: 127, badge: "Nhà hiền triết" },
-  { rank: 2, name: "LogicMaster", points: 14890, wins: 115, badge: "Bậc thầy lý lẽ" },
+  { rank: 1, name: "Thạc sĩ bé iu", points: 15240, wins: 127, badge: "Nhà hiền triết" },
+  { rank: 2, name: "Huutrungle", points: 14890, wins: 115, badge: "Bậc thầy lý lẽ" },
   { rank: 3, name: "MoralGuru", points: 13650, wins: 98, badge: "Người tạo trend" },
   { rank: 4, name: "DebateChamp", points: 12340, wins: 89, badge: "Bậc thầy lý lẽ" },
   { rank: 5, name: "ThinkTankPro", points: 11890, wins: 82, badge: "Nhà hiền triết" },
