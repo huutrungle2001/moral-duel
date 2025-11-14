@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Clock, TrendingUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Case } from "@/lib/mockData";
@@ -31,7 +32,8 @@ const CaseCard = ({ caseData }: CaseCardProps) => {
             </h3>
             {caseData.isTrending && (
               <Badge className="bg-primary/20 text-primary border border-primary/30 gap-1 whitespace-nowrap font-semibold text-xs">
-                📈 Trending
+                <TrendingUp className="w-3 h-3" />
+                Trending
               </Badge>
             )}
           </div>
@@ -102,7 +104,7 @@ const CaseCard = ({ caseData }: CaseCardProps) => {
               <span className="text-xs">tokens</span>
             </div>
             <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
-              <span>⏱️</span>
+              <Clock className="w-3.5 h-3.5" />
               <span>{caseData.timeRemaining}</span>
             </div>
           </div>
