@@ -269,70 +269,110 @@ const CaseDetail = () => {
 
           {/* MIDDLE: Battle Stats */}
           <div className="flex flex-col justify-center">
-            <Card className="p-8 relative overflow-hidden bg-background/95 backdrop-blur-sm
-              border-2 border-destructive/40
-              dark:border-destructive/50
-              shadow-[0_8px_30px_rgba(239,68,68,0.3),0_4px_15px_rgba(239,68,68,0.2),0_0_60px_rgba(255,165,0,0.15)]
-              dark:shadow-[0_10px_40px_rgba(239,68,68,0.4),0_5px_20px_rgba(239,68,68,0.25),0_0_80px_rgba(255,165,0,0.2)]">
-              
-              {/* Layered fire effect backgrounds */}
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-600/20 via-red-500/15 to-yellow-400/10 animate-[pulse_3s_ease-in-out_infinite]" />
-              <div className="absolute inset-0 bg-gradient-to-br from-red-500/15 via-orange-500/20 to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-yellow-500/10 via-red-600/15 to-orange-400/10 animate-[pulse_5s_ease-in-out_infinite_1s]" />
-              
-              {/* Fire glow edges */}
-              <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-orange-500/20 to-transparent blur-xl" />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-red-500/20 to-transparent blur-xl" />
-              <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-orange-500/15 to-transparent blur-xl" />
-              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-red-500/15 to-transparent blur-xl" />
-              
-              <div className="relative z-10 space-y-6">
-                <div className="text-center">
-                  <h2 className="text-3xl font-bold text-foreground font-serif mb-1 
-                    drop-shadow-[0_2px_8px_rgba(239,68,68,0.5)]
-                    dark:drop-shadow-[0_2px_10px_rgba(239,68,68,0.6)]">
-                    Battle Arena
-                  </h2>
-                  <p className="text-sm text-muted-foreground font-semibold">Live debate intensity</p>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-bold text-foreground">YES</span>
-                      <span className="text-3xl font-bold text-yes-foreground drop-shadow-[0_2px_4px_rgba(92,189,185,0.5)]">
-                        {yesPercentage.toFixed(0)}%
-                      </span>
+            <Card className="p-0 relative overflow-hidden bg-background/95 backdrop-blur-sm border-2 border-border/60">
+              {/* Two-Side Layout */}
+              <div className="grid grid-cols-2 divide-x-2 divide-border/60">
+                
+                {/* LEFT SIDE - YES (Blue Fire) */}
+                <div className="relative overflow-hidden p-6">
+                  {/* Blue fire gradient backgrounds */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/15 to-teal-400/10 animate-[pulse_3s_ease-in-out_infinite]" />
+                  <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/15 via-cyan-500/20 to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/10 via-blue-600/15 to-cyan-400/10 animate-[pulse_5s_ease-in-out_infinite_1s]" />
+                  
+                  {/* Blue glow edges */}
+                  <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-cyan-500/25 to-transparent blur-xl" />
+                  <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-blue-500/20 to-transparent blur-xl" />
+                  
+                  <div className="relative z-10 space-y-4">
+                    <div className="text-center">
+                      <h3 className="text-2xl font-bold text-yes-foreground drop-shadow-[0_2px_8px_rgba(92,189,185,0.6)]">
+                        YES
+                      </h3>
                     </div>
-                    <div className="h-4 rounded-full overflow-hidden bg-muted border border-border/50 shadow-inner">
-                      <div className="h-full bg-gradient-to-r from-yes to-yes/80 transition-all duration-500 shadow-lg" 
-                        style={{ width: `${yesPercentage}%` }} />
+                    
+                    <div className="space-y-3">
+                      {/* Percentage */}
+                      <div className="text-center">
+                        <div className="text-5xl font-bold text-yes-foreground drop-shadow-[0_2px_8px_rgba(92,189,185,0.7)]">
+                          {yesPercentage.toFixed(0)}%
+                        </div>
+                      </div>
+                      
+                      {/* Vote Bar */}
+                      <div className="space-y-2">
+                        <div className="h-3 rounded-full overflow-hidden bg-background/50 border border-yes/30 shadow-inner">
+                          <div className="h-full bg-gradient-to-r from-yes via-cyan-400 to-yes/90 transition-all duration-500 shadow-[0_0_10px_rgba(92,189,185,0.5)]" 
+                            style={{ width: `${yesPercentage}%` }} />
+                        </div>
+                        
+                        {/* Vote Count */}
+                        <div className="text-center">
+                          <p className="text-sm font-semibold text-foreground/80">
+                            {caseData.yesVotes.toLocaleString()} votes
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-xs text-muted-foreground">{caseData.yesVotes} votes</p>
-                  </div>
-
-                  <div className="text-center py-2">
-                    <span className="text-3xl font-bold text-foreground drop-shadow-lg">VS</span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-bold text-foreground">NO</span>
-                      <span className="text-3xl font-bold text-no-foreground drop-shadow-[0_2px_4px_rgba(239,68,68,0.5)]">
-                        {noPercentage.toFixed(0)}%
-                      </span>
-                    </div>
-                    <div className="h-4 rounded-full overflow-hidden bg-muted border border-border/50 shadow-inner">
-                      <div className="h-full bg-gradient-to-l from-no to-no/80 transition-all duration-500 shadow-lg" 
-                        style={{ width: `${noPercentage}%` }} />
-                    </div>
-                    <p className="text-xs text-muted-foreground">{caseData.noVotes} votes</p>
                   </div>
                 </div>
 
-                <div className="text-center pt-4 border-t border-border/50">
-                  <p className="text-sm text-muted-foreground font-semibold">🎯 Total Warriors</p>
-                  <p className="text-3xl font-bold text-foreground">{totalVotes}</p>
+                {/* RIGHT SIDE - NO (Red Fire) */}
+                <div className="relative overflow-hidden p-6">
+                  {/* Red fire gradient backgrounds */}
+                  <div className="absolute inset-0 bg-gradient-to-bl from-red-500/20 via-orange-500/15 to-yellow-400/10 animate-[pulse_3s_ease-in-out_infinite]" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-orange-400/15 via-red-500/20 to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
+                  <div className="absolute inset-0 bg-gradient-to-tl from-yellow-500/10 via-red-600/15 to-orange-400/10 animate-[pulse_5s_ease-in-out_infinite_1s]" />
+                  
+                  {/* Red glow edges */}
+                  <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-red-500/25 to-transparent blur-xl" />
+                  <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-orange-500/20 to-transparent blur-xl" />
+                  
+                  <div className="relative z-10 space-y-4">
+                    <div className="text-center">
+                      <h3 className="text-2xl font-bold text-no-foreground drop-shadow-[0_2px_8px_rgba(239,68,68,0.6)]">
+                        NO
+                      </h3>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      {/* Percentage */}
+                      <div className="text-center">
+                        <div className="text-5xl font-bold text-no-foreground drop-shadow-[0_2px_8px_rgba(239,68,68,0.7)]">
+                          {noPercentage.toFixed(0)}%
+                        </div>
+                      </div>
+                      
+                      {/* Vote Bar */}
+                      <div className="space-y-2">
+                        <div className="h-3 rounded-full overflow-hidden bg-background/50 border border-no/30 shadow-inner">
+                          <div className="h-full bg-gradient-to-r from-no via-orange-500 to-no/90 transition-all duration-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" 
+                            style={{ width: `${noPercentage}%` }} />
+                        </div>
+                        
+                        {/* Vote Count */}
+                        <div className="text-center">
+                          <p className="text-sm font-semibold text-foreground/80">
+                            {caseData.noVotes.toLocaleString()} votes
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Section - Total Pool & Stats */}
+              <div className="relative border-t-2 border-border/60 bg-gradient-to-r from-cyan-500/5 via-background to-red-500/5 p-6">
+                <div className="relative z-10 grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <p className="text-sm text-muted-foreground font-semibold mb-1">Battle Arena</p>
+                    <p className="text-2xl font-bold text-foreground">VS</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-sm text-muted-foreground font-semibold mb-1">🎯 Total Warriors</p>
+                    <p className="text-2xl font-bold text-foreground">{totalVotes.toLocaleString()}</p>
+                  </div>
                 </div>
               </div>
             </Card>
