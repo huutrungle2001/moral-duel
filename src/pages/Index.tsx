@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Sparkles, Plus, TrendingUp, Vote, Coins, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import CaseCard from "@/components/CaseCard";
@@ -20,7 +19,6 @@ const Index = () => {
         <div className="container mx-auto px-4 py-12 relative">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20">
-              <Sparkles className="w-4 h-4" />
               <span className="text-sm font-medium">Where Logic Meets Morality</span>
             </div>
             
@@ -41,13 +39,11 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/discover">
                 <Button size="lg" variant="gradientAccent" className="text-lg px-8 gap-2">
-                  <Brain className="w-5 h-5" />
                   Join the vote now, show your intelligence!
                 </Button>
               </Link>
               <Link to="/create">
                 <Button size="lg" variant="gradientAccent" className="text-lg px-8 gap-2">
-                  <Plus className="w-5 h-5" />
                   Create a Trend & Go Viral
                 </Button>
               </Link>
@@ -58,7 +54,7 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-200/20 dark:via-amber-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl" />
                 
                 <div className="relative z-10">
-                  <Coins className="w-7 h-7 text-amber-600 dark:text-amber-400 transition-transform duration-500 group-hover:rotate-12" />
+                  <span className="text-2xl">💰</span>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 relative z-10">
@@ -87,7 +83,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <TrendingUp className="w-8 h-8 text-accent" />
+              <span className="text-2xl">📈</span>
               <h2 className="text-3xl font-bold text-foreground">Trending Duels</h2>
             </div>
             <Link to="/discover">
@@ -179,8 +175,7 @@ const Index = () => {
           </p>
           <Link to="/discover">
             <Button size="lg" variant="gradientAccent" className="text-lg px-10 py-6 shadow-xl gap-2">
-              <Sparkles className="w-5 h-5" />
-              Start Your First Duel & Earn Now
+              ✨ Start Your First Duel & Earn Now
             </Button>
           </Link>
         </div>

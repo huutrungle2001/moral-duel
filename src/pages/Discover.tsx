@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { TrendingUp, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import CaseCard from "@/components/CaseCard";
 import { Button } from "@/components/ui/button";
@@ -35,16 +34,14 @@ const Discover = () => {
             onClick={() => setSortBy("trending")}
             className="gap-2"
           >
-            <TrendingUp className="w-4 h-4" />
-            Trending
+            📈 Trending
           </Button>
           <Button
             variant={sortBy === "newest" ? "default" : "outline"}
             onClick={() => setSortBy("newest")}
             className="gap-2"
           >
-            <Clock className="w-4 h-4" />
-            Newest
+            🕐 Newest
           </Button>
         </div>
 

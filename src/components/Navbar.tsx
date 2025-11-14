@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Users, Compass, Trophy, Moon, Sun, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import logoDark from "@/assets/logo-dark.png";
@@ -22,10 +21,10 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { path: "/", icon: Home, label: "Home" },
-    { path: "/discover", icon: Compass, label: "Discover" },
-    { path: "/community", icon: Users, label: "Community" },
-    { path: "/leaderboard", icon: Trophy, label: "Leaderboard" },
+    { path: "/", label: "Home" },
+    { path: "/discover", label: "Discover" },
+    { path: "/community", label: "Community" },
+    { path: "/leaderboard", label: "Leaderboard" },
   ];
 
   return (
@@ -46,7 +45,6 @@ const Navbar = () => {
 
             <div className="hidden md:flex items-center gap-2">
               {navItems.map((item) => {
-                const Icon = item.icon;
                 const isActive = location.pathname === item.path;
                 return (
                   <Link key={item.path} to={item.path}>
@@ -54,7 +52,6 @@ const Navbar = () => {
                       variant="ghost"
                       className={`gap-2 ${isActive ? 'bg-primary/10 text-primary hover:bg-primary/20' : ''}`}
                     >
-                      <Icon className="w-4 h-4" />
                       {item.label}
                     </Button>
                   </Link>
@@ -70,12 +67,11 @@ const Navbar = () => {
               onClick={toggleTheme}
               className="rounded-full"
             >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {isDark ? '☀️' : '🌙'}
             </Button>
             
             <Link to="/wallet">
               <Button variant="outline" className="gap-2">
-                <User className="w-4 h-4" />
                 <span className="hidden sm:inline">Thinking Profile</span>
               </Button>
             </Link>
@@ -85,7 +81,6 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <div className="md:hidden flex justify-around pb-3 gap-1">
           {navItems.map((item) => {
-            const Icon = item.icon;
             const isActive = location.pathname === item.path;
             return (
               <Link key={item.path} to={item.path} className="flex-1">
@@ -94,7 +89,6 @@ const Navbar = () => {
                   size="sm"
                   className={`w-full gap-1 ${isActive ? 'bg-primary/10 text-primary hover:bg-primary/20' : ''}`}
                 >
-                  <Icon className="w-4 h-4" />
                   <span className="text-xs">{item.label}</span>
                 </Button>
               </Link>

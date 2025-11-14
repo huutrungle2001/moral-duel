@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Plus, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -35,8 +34,7 @@ const CreateCase = () => {
           {/* Header */}
           <div className="mb-8 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent border border-accent/20 mb-4">
-              <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">Create Trending Cases & Earn Bonuses</span>
+              <span className="text-sm font-medium">✨ Create Trending Cases & Earn Bonuses</span>
             </div>
             <h1 className="text-4xl font-bold text-foreground mb-3">Create a Moral Duel</h1>
             <p className="text-lg text-muted-foreground">
@@ -101,8 +99,7 @@ const CreateCase = () => {
                 onClick={handleSubmit}
                 className="flex-1 bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 gap-2"
               >
-                <Plus className="w-5 h-5" />
-                Submit for AI Moderation
+                ➕ Submit for AI Moderation
               </Button>
             </div>
 
