@@ -86,7 +86,7 @@ const Profile = () => {
         </Card>
 
         {/* Connect Wallet Section */}
-        <Card className="p-6 mb-8 bg-gradient-to-br from-secondary/20 via-accent/10 to-background dark:from-primary/20 dark:via-accent/10 dark:to-background border-2 border-secondary/30 dark:border-primary/30">
+        <Card className="p-6 mb-8 bg-gradient-to-br from-secondary/20 via-primary/10 to-accent/15 dark:from-primary/20 dark:via-accent/10 dark:to-background border-2 border-secondary/30 dark:border-primary/30">
           <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
             <WalletIcon className="w-6 h-6" />
             My Wallet
