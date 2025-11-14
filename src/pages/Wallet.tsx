@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Wallet as WalletIcon, Award, TrendingUp, Download } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -45,8 +44,8 @@ const Wallet = () => {
         <Navbar />
         <div className="container mx-auto px-4 py-20">
           <Card className="max-w-md mx-auto p-8 text-center space-y-6">
-            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center">
-              <WalletIcon className="w-10 h-10 text-primary-foreground" />
+            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center text-4xl">
+              👛
             </div>
             <div>
               <h2 className="text-2xl font-bold text-foreground mb-2">Connect Your Wallet</h2>
@@ -59,8 +58,7 @@ const Wallet = () => {
               className="w-full bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 gap-2"
               size="lg"
             >
-              <WalletIcon className="w-5 h-5" />
-              Connect NeoLine Wallet
+              👛 Connect NeoLine Wallet
             </Button>
             <p className="text-xs text-muted-foreground">
               Don't have a wallet? <a href="#" className="text-primary hover:underline">Install NeoLine</a>
@@ -103,8 +101,7 @@ const Wallet = () => {
             <p className="text-sm text-muted-foreground mb-2">Pending Rewards</p>
             <p className="text-4xl font-bold text-foreground mb-1">{mockStats.pending}</p>
             <Button onClick={handleClaim} size="sm" className="mt-2 gap-2">
-              <Download className="w-4 h-4" />
-              Claim Now
+              ⬇️ Claim Now
             </Button>
           </Card>
 
@@ -119,7 +116,7 @@ const Wallet = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <Card className="p-6">
             <div className="flex items-center gap-3 mb-4">
-              <TrendingUp className="w-6 h-6 text-primary" />
+              <span className="text-2xl">📈</span>
               <h3 className="text-xl font-bold text-foreground">Statistics</h3>
             </div>
             <div className="space-y-3">
@@ -136,7 +133,7 @@ const Wallet = () => {
 
           <Card className="p-6">
             <div className="flex items-center gap-3 mb-4">
-              <Award className="w-6 h-6 text-accent" />
+              <span className="text-2xl">🏆</span>
               <h3 className="text-xl font-bold text-foreground">Badges</h3>
             </div>
             <div className="space-y-2">

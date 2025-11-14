@@ -1,4 +1,3 @@
-import { Sparkles, Award, Heart } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -67,15 +66,15 @@ const Community = () => {
   const getPostIcon = (type: string) => {
     switch (type) {
       case "reward":
-        return <Award className="w-5 h-5 text-accent" />;
+        return <span className="text-2xl">🏆</span>;
       case "achievement":
-        return <Sparkles className="w-5 h-5 text-primary" />;
+        return <span className="text-2xl">⭐</span>;
       case "game":
-        return <Sparkles className="w-5 h-5 text-primary-glow" />;
+        return <span className="text-2xl">🎮</span>;
       case "trending":
-        return <Heart className="w-5 h-5 text-destructive" />;
+        return <span className="text-2xl">❤️</span>;
       default:
-        return <Sparkles className="w-5 h-5 text-muted-foreground" />;
+        return <span className="text-2xl">✨</span>;
     }
   };
 
@@ -111,7 +110,7 @@ const Community = () => {
           shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(0,0,0,0.05)]
           dark:shadow-[0_6px_25px_rgba(225,179,130,0.15),0_3px_10px_rgba(225,179,130,0.1)]">
           <div className="flex items-start gap-4">
-            <Sparkles className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+            <span className="text-3xl flex-shrink-0 mt-1">✨</span>
             <div>
               <h3 className="text-lg font-bold text-foreground mb-2">Welcome to the Community Feed</h3>
               <p className="text-muted-foreground leading-relaxed">
