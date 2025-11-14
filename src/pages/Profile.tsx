@@ -187,7 +187,7 @@ const Profile = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Win Rate</span>
-                <span className="font-semibold text-yes-foreground">{mockStats.winRate}%</span>
+                <span className="font-semibold text-yes">{mockStats.winRate}%</span>
               </div>
             </div>
           </Card>
