@@ -227,25 +227,25 @@ const CaseDetail = () => {
           {/* MIDDLE: Battle Stats */}
           <div className="flex flex-col justify-center">
             <Card className="p-8 relative overflow-hidden bg-background/95 backdrop-blur-sm
-              border-2 border-primary/70 dark:border-destructive/50
+              border-2 border-primary/70 dark:border-destructive/70
               shadow-[0_8px_30px_rgba(92,189,185,0.5),0_4px_15px_rgba(239,68,68,0.35),0_0_80px_rgba(251,191,36,0.3),0_0_120px_rgba(239,68,68,0.25),0_0_160px_rgba(92,189,185,0.2)]
-              dark:shadow-[0_10px_40px_rgba(239,68,68,0.5),0_5px_20px_rgba(239,68,68,0.35),0_0_100px_rgba(255,165,0,0.3),0_0_150px_rgba(255,69,0,0.25)]">
+              dark:shadow-[0_12px_50px_rgba(255,100,0,0.65),0_8px_30px_rgba(255,69,0,0.5),0_0_120px_rgba(255,165,0,0.45),0_0_180px_rgba(255,69,0,0.35),0_0_220px_rgba(255,100,0,0.25)]">
               
               {/* Layered gradient effect backgrounds */}
-              <div className="absolute inset-0 bg-gradient-to-t from-amber-400/25 via-rose-400/22 to-cyan-300/18 dark:from-orange-600/30 dark:via-red-500/25 dark:to-yellow-400/18 animate-[pulse_3s_ease-in-out_infinite]" />
-              <div className="absolute inset-0 bg-gradient-to-br from-rose-400/22 via-orange-400/25 to-transparent dark:from-red-500/25 dark:via-orange-500/30 dark:to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-yellow-400/18 via-red-500/22 to-teal-300/18 dark:from-yellow-500/18 dark:via-red-600/25 dark:to-orange-400/18 animate-[pulse_5s_ease-in-out_infinite_1s]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-amber-400/25 via-rose-400/22 to-cyan-300/18 dark:from-orange-600/45 dark:via-red-500/40 dark:to-yellow-400/35 animate-[pulse_3s_ease-in-out_infinite]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-400/22 via-orange-400/25 to-transparent dark:from-red-500/40 dark:via-orange-500/45 dark:to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-yellow-400/18 via-red-500/22 to-teal-300/18 dark:from-yellow-500/35 dark:via-red-600/40 dark:to-orange-500/35 animate-[pulse_5s_ease-in-out_infinite_1s]" />
               
               {/* Intense glow edges */}
-              <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-amber-300/40 dark:from-orange-500/35 to-transparent blur-3xl" />
-              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-rose-300/40 dark:from-red-500/35 to-transparent blur-3xl" />
-              <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-teal-300/35 dark:from-orange-500/30 to-transparent blur-3xl" />
-              <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-pink-300/35 dark:from-red-500/30 to-transparent blur-3xl" />
+              <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-amber-300/40 dark:from-orange-500/55 to-transparent blur-3xl" />
+              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-rose-300/40 dark:from-red-500/55 to-transparent blur-3xl" />
+              <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-teal-300/35 dark:from-orange-500/50 to-transparent blur-3xl" />
+              <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-pink-300/35 dark:from-red-500/50 to-transparent blur-3xl" />
               
               {/* Extra outer glow layers */}
-              <div className="absolute -inset-4 bg-gradient-radial from-orange-400/18 via-red-400/10 to-transparent dark:from-orange-500/20 dark:via-red-500/10 dark:to-transparent blur-3xl animate-[pulse_4s_ease-in-out_infinite]" />
-              <div className="absolute -inset-6 bg-gradient-radial from-yellow-400/15 via-rose-400/8 to-transparent dark:from-yellow-500/15 dark:via-rose-500/8 dark:to-transparent blur-3xl animate-[pulse_5s_ease-in-out_infinite_1.5s]" />
-              <div className="absolute -inset-8 bg-gradient-radial from-cyan-400/12 via-amber-400/6 to-transparent dark:from-orange-400/12 dark:via-red-400/6 dark:to-transparent blur-3xl animate-[pulse_6s_ease-in-out_infinite_2s]" />
+              <div className="absolute -inset-4 bg-gradient-radial from-orange-400/18 via-red-400/10 to-transparent dark:from-orange-500/35 dark:via-red-500/25 dark:to-transparent blur-3xl animate-[pulse_4s_ease-in-out_infinite]" />
+              <div className="absolute -inset-6 bg-gradient-radial from-yellow-400/15 via-rose-400/8 to-transparent dark:from-yellow-500/30 dark:via-rose-500/20 dark:to-transparent blur-3xl animate-[pulse_5s_ease-in-out_infinite_1.5s]" />
+              <div className="absolute -inset-8 bg-gradient-radial from-cyan-400/12 via-amber-400/6 to-transparent dark:from-orange-400/25 dark:via-red-500/18 dark:to-transparent blur-3xl animate-[pulse_6s_ease-in-out_infinite_2s]" />
               
               <div className="relative z-10 space-y-6">
                 <div className="text-center">
