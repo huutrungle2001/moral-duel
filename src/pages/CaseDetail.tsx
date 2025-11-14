@@ -232,9 +232,9 @@ const CaseDetail = () => {
               dark:shadow-[0_12px_50px_rgba(255,100,0,0.65),0_8px_30px_rgba(255,69,0,0.5),0_0_120px_rgba(255,165,0,0.45),0_0_180px_rgba(255,69,0,0.35),0_0_220px_rgba(255,100,0,0.25)]">
               
               {/* Layered gradient effect backgrounds */}
-              <div className="absolute inset-0 bg-gradient-to-t from-amber-400/25 via-rose-400/22 to-cyan-300/18 dark:from-orange-600/45 dark:via-red-500/40 dark:to-yellow-400/35 animate-[pulse_3s_ease-in-out_infinite]" />
-              <div className="absolute inset-0 bg-gradient-to-br from-rose-400/22 via-orange-400/25 to-transparent dark:from-red-500/40 dark:via-orange-500/45 dark:to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-yellow-400/18 via-red-500/22 to-teal-300/18 dark:from-yellow-500/35 dark:via-red-600/40 dark:to-orange-500/35 animate-[pulse_5s_ease-in-out_infinite_1s]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-amber-400/20 via-transparent to-amber-300/15 dark:from-orange-600/35 dark:via-transparent dark:to-yellow-500/25 animate-[pulse_3s_ease-in-out_infinite]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/18 via-transparent to-transparent dark:from-red-500/30 dark:via-transparent dark:to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-amber-500/15 via-transparent to-yellow-300/12 dark:from-orange-500/28 dark:via-transparent dark:to-red-600/25 animate-[pulse_5s_ease-in-out_infinite_1s]" />
               
               {/* Intense glow edges */}
               <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-amber-300/40 dark:from-orange-500/55 to-transparent blur-3xl" />
