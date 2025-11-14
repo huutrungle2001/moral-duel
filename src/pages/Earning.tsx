@@ -1,3 +1,4 @@
+import { Award, Trophy, TrendingUp, Coins } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -39,7 +40,8 @@ const Earning = () => {
         {/* Header */}
         <div className="mb-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent border border-accent/20 mb-4">
-            <span className="text-sm font-medium">💰 Transparent Reward System</span>
+            <Coins className="w-4 h-4" />
+            <span className="text-sm font-medium">Transparent Reward System</span>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-3">How to Earn Tokens</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -50,7 +52,7 @@ const Earning = () => {
         {/* Reward Breakdown */}
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-            <span className="text-2xl">🏆</span>
+            <Trophy className="w-7 h-7 text-accent" />
             Reward Distribution
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -73,7 +75,7 @@ const Earning = () => {
         {/* How It Works */}
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-            <span className="text-2xl">📈</span>
+            <TrendingUp className="w-7 h-7 text-primary" />
             How It Works
           </h2>
           <Card className="p-8">
@@ -121,7 +123,7 @@ const Earning = () => {
         {/* Badges & Achievements */}
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-            <span className="text-2xl">🎖️</span>
+            <Award className="w-7 h-7 text-primary-glow" />
             Badges & Bonus Rewards
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
