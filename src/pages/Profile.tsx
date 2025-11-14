@@ -182,9 +182,9 @@ const Profile = () => {
                 <WalletIcon className="w-5 h-5" />
                 Connect NeoLine Wallet
               </Button>
-              <p className="text-xs text-muted-foreground mt-4">
+              <p className="text-xs text-foreground/70 mt-4">
                 Don't have a wallet?{" "}
-                <a href="#" className="text-accent hover:underline">
+                <a href="#" className="text-primary dark:text-accent hover:underline font-medium">
                   Install NeoLine
                 </a>
               </p>
