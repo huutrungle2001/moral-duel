@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { mockCases, mockArguments } from "@/lib/mockData";
 import { toast } from "sonner";
+import BattleArena from "@/components/BattleArena";
 
 const CaseDetail = () => {
   const { id } = useParams();
@@ -224,83 +225,7 @@ const CaseDetail = () => {
           </div>
 
           {/* MIDDLE: Battle Stats */}
-          <div className="flex flex-col justify-center">
-            {/* Two-Side Battle Arena - No Card Border */}
-            <div className="relative overflow-hidden">
-              {/* Dramatic Background Effects */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-background to-red-500/20 animate-[pulse_4s_ease-in-out_infinite]" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-              
-              <div className="grid grid-cols-2 gap-0 relative z-10">
-                
-                {/* LEFT SIDE - YES (Blue Fire) */}
-                <div className="relative overflow-hidden p-8 group">
-                  {/* Dynamic Blue Fire Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/30 via-blue-500/20 to-transparent animate-[pulse_3s_ease-in-out_infinite]" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal-500/25 via-cyan-400/15 to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent animate-[pulse_5s_ease-in-out_infinite_1s]" />
-                  
-                  {/* Intense Blue Glow */}
-                  <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-cyan-500/40 via-blue-400/30 to-transparent blur-2xl animate-[pulse_3s_ease-in-out_infinite]" />
-                  
-                  <div className="relative z-10 flex items-center justify-between">
-                    <div>
-                      <h3 className="text-3xl font-bold text-yes-foreground drop-shadow-[0_0_15px_rgba(92,189,185,0.8)] mb-1">
-                        YES
-                      </h3>
-                      <p className="text-sm text-foreground/70">{caseData.yesVotes.toLocaleString()} votes</p>
-                    </div>
-                    
-                    <div className="text-6xl font-bold text-yes-foreground drop-shadow-[0_0_20px_rgba(92,189,185,1)] animate-[pulse_2s_ease-in-out_infinite]">
-                      {yesPercentage.toFixed(0)}%
-                    </div>
-                  </div>
-                  
-                  {/* Progress Bar */}
-                  <div className="mt-4 h-2 rounded-full overflow-hidden bg-background/30 backdrop-blur-sm border border-yes/20">
-                    <div className="h-full bg-gradient-to-r from-yes via-cyan-400 to-teal-400 transition-all duration-700 shadow-[0_0_15px_rgba(92,189,185,0.7)]" 
-                      style={{ width: `${yesPercentage}%` }} />
-                  </div>
-                </div>
-
-                {/* RIGHT SIDE - NO (Red Fire) */}
-                <div className="relative overflow-hidden p-8 group border-l-2 border-foreground/10">
-                  {/* Dynamic Red Fire Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-l from-red-600/30 via-orange-500/20 to-transparent animate-[pulse_3s_ease-in-out_infinite]" />
-                  <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/25 via-red-400/15 to-transparent animate-[pulse_4s_ease-in-out_infinite_0.5s]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-red-600/20 to-transparent animate-[pulse_5s_ease-in-out_infinite_1s]" />
-                  
-                  {/* Intense Red Glow */}
-                  <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-red-500/40 via-orange-400/30 to-transparent blur-2xl animate-[pulse_3s_ease-in-out_infinite]" />
-                  
-                  <div className="relative z-10 flex items-center justify-between">
-                    <div className="text-6xl font-bold text-no-foreground drop-shadow-[0_0_20px_rgba(239,68,68,1)] animate-[pulse_2s_ease-in-out_infinite]">
-                      {noPercentage.toFixed(0)}%
-                    </div>
-                    
-                    <div className="text-right">
-                      <h3 className="text-3xl font-bold text-no-foreground drop-shadow-[0_0_15px_rgba(239,68,68,0.8)] mb-1">
-                        NO
-                      </h3>
-                      <p className="text-sm text-foreground/70">{caseData.noVotes.toLocaleString()} votes</p>
-                    </div>
-                  </div>
-                  
-                  {/* Progress Bar */}
-                  <div className="mt-4 h-2 rounded-full overflow-hidden bg-background/30 backdrop-blur-sm border border-no/20">
-                    <div className="h-full bg-gradient-to-l from-no via-orange-500 to-yellow-500 transition-all duration-700 shadow-[0_0_15px_rgba(239,68,68,0.7)]" 
-                      style={{ width: `${noPercentage}%` }} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Stats - Centered */}
-              <div className="relative z-10 text-center py-4 border-t border-foreground/10 bg-gradient-to-r from-cyan-500/5 via-transparent to-red-500/5">
-                <p className="text-sm text-muted-foreground font-semibold mb-1">Battle Arena</p>
-                <p className="text-2xl font-bold text-foreground">{totalVotes.toLocaleString()} <span className="text-sm text-muted-foreground">total warriors</span></p>
-              </div>
-            </div>
-          </div>
+          <BattleArena yesVotes={caseData.yesVotes} noVotes={caseData.noVotes} />
 
           {/* RIGHT: NO Side */}
           <div className="space-y-4">
