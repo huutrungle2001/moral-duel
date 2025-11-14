@@ -73,7 +73,7 @@ const Navbar = () => {
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
             
-            <Link to="/wallet">
+            <Link to="/profile">
               <Button variant="outline" className="gap-2">
                 <User className="w-4 h-4" />
                 <span className="hidden sm:inline">Thinking Profile</span>

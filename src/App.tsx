@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Discover from "./pages/Discover";
 import CaseDetail from "./pages/CaseDetail";
-import Wallet from "./pages/Wallet";
+import Profile from "./pages/Profile";
 import CreateCase from "./pages/CreateCase";
 import Community from "./pages/Community";
 import Earning from "./pages/Earning";
@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/case/:id" element={<CaseDetail />} />
-          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/create" element={<CreateCase />} />
           <Route path="/community" element={<Community />} />
           <Route path="/earning" element={<Earning />} />
