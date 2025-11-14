@@ -39,7 +39,7 @@ const Navbar = () => {
                 alt="Moral Oracle" 
                 className="w-16 h-16 p-1 rounded-lg" 
               />
-              <span className="text-xl font-bold font-serif text-foreground hidden sm:inline">
+              <span className="text-xl font-bold font-roboto text-foreground hidden sm:inline">
                 Moral Oracle
               </span>
             </Link>
