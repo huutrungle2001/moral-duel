@@ -175,7 +175,7 @@ const Leaderboard = () => {
                           </h3>
                           <span className="text-sm">{user.badge}</span>
                         </div>
-                        <p className={`text-sm ${user.rank <= 3 ? 'text-white/90' : 'text-muted-foreground'}`}>
+                        <p className={`text-sm ${user.rank <= 3 ? 'text-white/90' : 'text-foreground/60'}`}>
                           {user.wins} victories • Rank #{user.rank}
                         </p>
                       </div>
@@ -183,10 +183,10 @@ const Leaderboard = () => {
 
                     {/* Points */}
                     <div className="text-right">
-                      <div className={`text-3xl font-bold ${user.rank <= 3 ? 'text-white drop-shadow-lg' : 'bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent'}`}>
+                      <div className={`text-3xl font-bold ${user.rank <= 3 ? 'text-white drop-shadow-lg' : 'text-primary'}`}>
                         {user.points.toLocaleString()}
                       </div>
-                      <div className={`text-sm ${user.rank <= 3 ? 'text-white/90' : 'text-muted-foreground'}`}>moral points</div>
+                      <div className={`text-sm font-medium ${user.rank <= 3 ? 'text-white/90' : 'text-foreground/70'}`}>moral points</div>
                     </div>
                   </div>
                 </CardContent>
