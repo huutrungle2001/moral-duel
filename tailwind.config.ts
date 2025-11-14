@@ -17,6 +17,7 @@ export default {
         sans: ['Inter', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
         display: ['Space Grotesk', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
