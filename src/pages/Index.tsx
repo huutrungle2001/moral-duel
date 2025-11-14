@@ -42,13 +42,13 @@ const Index = () => {
               <Link to="/discover">
                 <Button size="lg" variant="gradientAccent" className="text-lg px-8 gap-2">
                   <Brain className="w-5 h-5" />
-                  Join the vote now, show your intelligence!
+                  Join the debate, shape the outcome
                 </Button>
               </Link>
               <Link to="/create">
                 <Button size="lg" variant="gradientAccent" className="text-lg px-8 gap-2">
                   <Plus className="w-5 h-5" />
-                  Create a Trend & Go Viral
+                  Create the trend, claim big reward
                 </Button>
               </Link>
             </div>
