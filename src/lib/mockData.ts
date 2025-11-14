@@ -40,16 +40,16 @@ export const mockCases: Case[] = [
         author: "Tribatko",
         content: "Nếu không tin tưởng, thì đừng yêu. Định vị chỉ tạo thêm vết nứt.",
         votes: 89,
-        side: "no"
+        side: "no",
       },
       {
         id: "c2",
         author: "Harithng",
         content: "Đôi khi sự thật cần được xác minh. Nếu người ta vô tội, họ sẽ hiểu.",
         votes: 67,
-        side: "yes"
-      }
-    ]
+        side: "yes",
+      },
+    ],
   },
   {
     id: "2",
@@ -69,16 +69,16 @@ export const mockCases: Case[] = [
         author: "Thạc sĩ bé iu",
         content: "Kinh doanh là kinh doanh. Cảm xúc không trả lương nhân viên.",
         votes: 54,
-        side: "yes"
+        side: "yes",
       },
       {
         id: "c4",
         author: "Mèo anh lông ngắn",
         content: "Ông ấy đã cống hiến nhiều năm. Đây là cơ hội cho công ty thể hiện nhân văn.",
         votes: 92,
-        side: "no"
-      }
-    ]
+        side: "no",
+      },
+    ],
   },
   {
     id: "3",
@@ -98,17 +98,17 @@ export const mockCases: Case[] = [
         author: "Mle",
         content: "Ly thân đã là dấu chấm hết. Mọi người xứng đáng có hạnh phúc mới.",
         votes: 78,
-        side: "yes"
+        side: "yes",
       },
       {
         id: "c6",
         author: "Hải Râu",
         content: "Giấy tờ chưa xong nghĩa là vẫn còn trách nhiệm. Hãy tôn trọng cam kết.",
         votes: 71,
-        side: "no"
-      }
-    ]
-  }
+        side: "no",
+      },
+    ],
+  },
 ];
 
 export const mockArguments = {
@@ -117,24 +117,25 @@ export const mockArguments = {
       {
         id: "a1",
         author: "Bà béo",
-        content: "Trong thời đại mà ngoại tình quá dễ dàng, việc xác minh là hợp lý. Nếu người yêu trong sạch, họ sẽ không ngại chia sẻ vị trí.",
+        content:
+          "Trong thời đại mà ngoại tình quá dễ dàng, việc xác minh là hợp lý. Nếu người yêu trong sạch, họ sẽ không ngại chia sẻ vị trí.",
         votes: 145,
-        potentialReward: 75
+        potentialReward: 75,
       },
       {
         id: "a2",
         author: "Tribatko",
         content: "Đôi khi lòng tin cần được củng cố bằng bằng chứng. Định vị chỉ là công cụ, không phải tội lỗi.",
         votes: 98,
-        potentialReward: 50
+        potentialReward: 50,
       },
       {
         id: "a3",
         author: "Harithng",
         content: "Thà biết sự thật đau lòng còn hơn sống trong ảo tưởng mãi mãi.",
         votes: 67,
-        potentialReward: 35
-      }
+        potentialReward: 35,
+      },
     ],
     no: [
       {
@@ -142,47 +143,48 @@ export const mockArguments = {
         author: "Thạc sĩ bé iu",
         content: "Tình yêu không thể xây dựng trên giám sát. Định vị là hành động phản bội lòng tin.",
         votes: 189,
-        potentialReward: 95
+        potentialReward: 95,
       },
       {
         id: "a5",
         author: "Mèo anh lông ngắn",
         content: "Nếu bạn cần kiểm soát đối phương đến mức này, thì mối quan hệ đã chết từ lâu.",
         votes: 156,
-        potentialReward: 80
+        potentialReward: 80,
       },
       {
         id: "a6",
         author: "Mle",
         content: "Quyền riêng tư là quyền cơ bản. Vi phạm nó là vi phạm đạo đức nghiêm trọng.",
         votes: 134,
-        potentialReward: 65
-      }
-    ]
+        potentialReward: 65,
+      },
+    ],
   },
   "2": {
     yes: [
       {
         id: "a7",
         author: "Hải Râu",
-        content: "Công ty cần tối ưu hiệu suất để cạnh tranh. Giữ nhân viên kém năng suất là không công bằng với đồng nghiệp.",
+        content:
+          "Công ty cần tối ưu hiệu suất để cạnh tranh. Giữ nhân viên kém năng suất là không công bằng với đồng nghiệp.",
         votes: 112,
-        potentialReward: 60
+        potentialReward: 60,
       },
       {
         id: "a8",
         author: "Bà béo",
         content: "Kinh doanh là về kết quả. Tình cảm không thể thay thế hiệu suất.",
         votes: 89,
-        potentialReward: 45
+        potentialReward: 45,
       },
       {
         id: "a8b",
-        author: "Anonymous",
+        author: "Hung_nam_ky",
         content: "Người trẻ làm việc nhanh hơn thì tốt hơn rồi.",
         votes: 18,
-        potentialReward: 10
-      }
+        potentialReward: 10,
+      },
     ],
     no: [
       {
@@ -190,23 +192,23 @@ export const mockArguments = {
         author: "Tribatko",
         content: "Ông ấy đã cống hiến cả thanh xuân. Đây là lúc công ty đền đáp lòng trung thành.",
         votes: 201,
-        potentialReward: 100
+        potentialReward: 100,
       },
       {
         id: "a10",
         author: "Harithng",
         content: "Sa thải ông ấy sẽ gửi thông điệp tồi đến toàn bộ nhân viên: lòng trung thành không có giá trị.",
         votes: 178,
-        potentialReward: 90
+        potentialReward: 90,
       },
       {
         id: "a10b",
-        author: "NguyenVanA",
+        author: "Jessica meo meo",
         content: "Ông ấy là người tốt, thấy tội nghiệp.",
         votes: 22,
-        potentialReward: 12
-      }
-    ]
+        potentialReward: 12,
+      },
+    ],
   },
   "3": {
     yes: [
@@ -215,8 +217,8 @@ export const mockArguments = {
         author: "Thạc sĩ bé iu",
         content: "Ly thân là quyết định cuối cùng. Không ai nên phải đợi giấy tờ mới được sống tiếp.",
         votes: 167,
-        potentialReward: 85
-      }
+        potentialReward: 85,
+      },
     ],
     no: [
       {
@@ -224,8 +226,8 @@ export const mockArguments = {
         author: "Mèo anh lông ngắn",
         content: "Cam kết không chỉ là giấy tờ. Hãy tôn trọng người còn lại cho đến khi mọi thứ chính thức kết thúc.",
         votes: 143,
-        potentialReward: 70
-      }
-    ]
-  }
+        potentialReward: 70,
+      },
+    ],
+  },
 };
