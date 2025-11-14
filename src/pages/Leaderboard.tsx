@@ -111,11 +111,11 @@ const Leaderboard = () => {
   const getRankBg = (rank: number) => {
     switch (rank) {
       case 1:
-        return "bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-500 border-yellow-500 shadow-xl shadow-yellow-500/20";
+        return "bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-500 dark:from-amber-600 dark:via-yellow-600 dark:to-amber-700 border-yellow-500 dark:border-amber-600 shadow-xl shadow-yellow-500/20 dark:shadow-amber-600/30";
       case 2:
-        return "bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 border-slate-400 shadow-xl shadow-slate-400/20";
+        return "bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 dark:from-slate-600 dark:via-slate-700 dark:to-slate-800 border-slate-400 dark:border-slate-600 shadow-xl shadow-slate-400/20 dark:shadow-slate-600/30";
       case 3:
-        return "bg-gradient-to-r from-orange-400 via-amber-600 to-orange-600 border-amber-600 shadow-xl shadow-amber-600/20";
+        return "bg-gradient-to-r from-orange-400 via-amber-600 to-orange-600 dark:from-orange-600 dark:via-amber-700 dark:to-orange-700 border-amber-600 dark:border-orange-600 shadow-xl shadow-amber-600/20 dark:shadow-orange-600/30";
       default:
         return "bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30 hover:border-primary/50 transition-all";
     }
