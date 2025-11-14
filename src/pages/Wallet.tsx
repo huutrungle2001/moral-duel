@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Wallet as WalletIcon, Award, TrendingUp, Download } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
@@ -7,13 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
 const Wallet = () => {
-  const [isConnected, setIsConnected] = useState(false);
-  const [walletAddress] = useState("0xABC123DEF456GHI789JKL012MNO345PQR678STU901");
-
-  const handleConnect = () => {
-    setIsConnected(true);
-    toast.success("Wallet connected successfully!");
-  };
+  const walletAddress = "0xABC123DEF456GHI789JKL012MNO345PQR678STU901";
 
   const handleClaim = () => {
     toast.success("Rewards claimed! Check your wallet.");
@@ -38,38 +31,6 @@ const Wallet = () => {
     { id: 2, case: "Sa thải nhân viên lớn tuổi?", reward: 120, date: "1 day ago" },
     { id: 3, case: "Tìm hiểu người mới khi ly thân?", reward: 145, date: "2 days ago" },
   ];
-
-  if (!isConnected) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Navbar />
-        <div className="container mx-auto px-4 py-20">
-          <Card className="max-w-md mx-auto p-8 text-center space-y-6">
-            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center">
-              <WalletIcon className="w-10 h-10 text-primary-foreground" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-2">Connect Your Wallet</h2>
-              <p className="text-muted-foreground">
-                Connect your Neo wallet to view your balance, claim rewards, and participate in debates
-              </p>
-            </div>
-            <Button
-              onClick={handleConnect}
-              className="w-full bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 gap-2"
-              size="lg"
-            >
-              <WalletIcon className="w-5 h-5" />
-              Connect NeoLine Wallet
-            </Button>
-            <p className="text-xs text-muted-foreground">
-              Don't have a wallet? <a href="#" className="text-primary hover:underline">Install NeoLine</a>
-            </p>
-          </Card>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-background">
