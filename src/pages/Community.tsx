@@ -8,59 +8,131 @@ const Community = () => {
   const mockPosts = [
     {
       id: 1,
+      author: "Bà béo",
+      avatar: "BB",
+      content: "Hôm nay tranh luận với chồng về việc nên mua iPhone hay Samsung, kiếm được 340 token. Giờ mua được cả 2 luôn! 😂💰",
+      type: "reward",
+      time: "30 phút trước"
+    },
+    {
+      id: 2,
+      author: "Thạc sĩ bé iu",
+      avatar: "TM",
+      content: "App này là thiên đường của mấy đứa hay cãi nhau! Vừa cãi được trả lương, về nhà cãi với vợ lại kiếm thêm experience. Win-win! 🤣",
+      type: "shoutout",
+      time: "1 giờ trước"
+    },
+    {
+      id: 3,
+      author: "Mèo anh lông ngắn",
+      avatar: "MA",
+      content: "Tranh luận case 'Cài định vị điện thoại người yêu' xong, crush nhắn hỏi sao cứ online hoài. Giờ thành case mới: 'Có nên nói sự thật về nghiện app tranh luận?' 😅",
+      type: "trending",
+      time: "2 giờ trước"
+    },
+    {
+      id: 4,
       author: "CryptoPhilosopher420",
       avatar: "CP",
       content: "Today I earned 240 tokens by defending the importance of privacy in relationships. Logic wins! 🧠",
       type: "reward",
-      time: "2 hours ago"
+      time: "2 giờ trước"
     },
     {
-      id: 2,
+      id: 5,
+      author: "Tribatko",
+      avatar: "TK",
+      content: "Vừa mở khóa huy hiệu 'Cao thủ lý lẽ'! Bí quyết: 70% logic, 30% cảm xúc, 100% kiên nhẫn đọc ý kiến người khác 🏆",
+      type: "achievement",
+      time: "3 giờ trước"
+    },
+    {
+      id: 6,
       author: "DebateLordSupreme",
       avatar: "DL",
       content: "This app is absolutely brilliant! Finally a place where I can argue with strangers AND get paid for it. My therapist says I'm making progress. 😂",
       type: "shoutout",
-      time: "4 hours ago"
+      time: "4 giờ trước"
     },
     {
-      id: 3,
+      id: 7,
+      author: "Harithng",
+      avatar: "HT",
+      content: "Mini game đạo đức: Nếu biết trước mình sẽ thua tranh luận, bạn có nên bỏ cuộc sớm để bảo toàn token không? 🤔",
+      type: "game",
+      time: "5 giờ trước"
+    },
+    {
+      id: 8,
       author: "MindReaderRefuser",
       avatar: "MR",
       content: "Mini moral game: If you could read your partner's mind for one day, would you? The Oracle says NO. Privacy is sacred.",
       type: "game",
-      time: "5 hours ago"
+      time: "5 giờ trước"
     },
     {
-      id: 4,
+      id: 9,
+      author: "Hải Râu",
+      avatar: "HR",
+      content: "Tạo case về 'Sa thải nhân viên lớn tuổi' vì nhớ sếp cũ. Giờ có 200+ người tham gia, bonus token về như lũ. Cảm ơn sếp cũ đã toxic! 😎",
+      type: "trending",
+      time: "8 giờ trước"
+    },
+    {
+      id: 10,
       author: "EthicsNinja42",
       avatar: "EN",
       content: "Just unlocked 'Bậc thầy lý lẽ' badge! My arguments on workplace ethics resonated with the community 💬",
       type: "achievement",
-      time: "1 day ago"
+      time: "1 ngày trước"
     },
     {
-      id: 5,
+      id: 11,
+      author: "Mle",
+      avatar: "ML",
+      content: "\"Cuộc đời không phải đen trắng, mà là 50 sắc thái xám. Nhưng tranh luận thì phải chọn YES hay NO thôi.\" - Triết lý sống còn 2025 🧘‍♀️",
+      type: "quote",
+      time: "1 ngày trước"
+    },
+    {
+      id: 12,
       author: "SocratesReborn",
       avatar: "SR",
       content: "\"The unexamined life is not worth living, but the over-examined life leads to analysis paralysis. Balance is wisdom.\" — Real moral reflection",
       type: "quote",
-      time: "1 day ago"
+      time: "1 ngày trước"
     },
     {
-      id: 6,
+      id: 13,
+      author: "Hung_nam_ky",
+      avatar: "HN",
+      content: "Vợ hỏi 'Anh nghĩ sao về case định vị điện thoại?'. Anh trả lời theo phe NO. Giờ phải ngủ sofa. Kiếm token mà mất giường. Trade-off đau lòng! 🛋️😭",
+      type: "shoutout",
+      time: "1 ngày trước"
+    },
+    {
+      id: 14,
+      author: "Jessica meo meo",
+      avatar: "JM",
+      content: "Mini game: Nếu tranh luận thắng nhưng mất bạn bè, vs tranh luận thua nhưng giữ được tình bạn - bạn chọn gì? Mình chọn... block luôn để khỏi phải chọn 🙈",
+      type: "game",
+      time: "2 ngày trước"
+    },
+    {
+      id: 15,
       author: "TokenHunterPro",
       avatar: "TH",
       content: "Created a case about elderly employment rights that got 150+ participants! Bonus rewards incoming",
       type: "trending",
-      time: "2 days ago"
+      time: "2 ngày trước"
     },
     {
-      id: 7,
+      id: 16,
       author: "ProfitVsCompassion",
       avatar: "PC",
       content: "Mini moral game: Should companies prioritize profit over employee wellbeing? Cast your vote in Discover!",
       type: "game",
-      time: "2 days ago"
+      time: "2 ngày trước"
     }
   ];
 
