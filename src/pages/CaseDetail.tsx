@@ -228,14 +228,6 @@ const CaseDetail = () => {
                 </p>
               </Card>
             )}
-
-            {caseData.yesArgument && (
-              <div className="bg-yes/20 border-2 border-yes rounded-xl p-4">
-                <h2 className="text-lg font-bold text-foreground font-serif">
-                  {caseData.yesArgument}
-                </h2>
-              </div>
-            )}
             
             <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
               <p className="text-sm font-semibold text-primary">
@@ -395,14 +387,6 @@ const CaseDetail = () => {
               </Card>
             )}
 
-            {caseData.noArgument && (
-              <div className="bg-no/20 border-2 border-no rounded-xl p-4">
-                <h2 className="text-lg font-bold text-foreground font-serif">
-                  {caseData.noArgument}
-                </h2>
-              </div>
-            )}
-            
             <div className="bg-muted/30 border border-border/50 rounded-xl p-4">
               <p className="text-sm font-semibold text-primary">
                 💰 Reward: Up to {Math.floor(caseData.rewardPool * 0.4)} tokens

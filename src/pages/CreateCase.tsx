@@ -13,11 +13,9 @@ const CreateCase = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [context, setContext] = useState("");
-  const [yesOption, setYesOption] = useState("");
-  const [noOption, setNoOption] = useState("");
 
   const handleSubmit = () => {
-    if (!title || !context || !yesOption || !noOption) {
+    if (!title || !context) {
       toast.error("Please fill in all fields");
       return;
     }
@@ -79,36 +77,6 @@ const CreateCase = () => {
               </p>
             </div>
 
-            {/* YES Option */}
-            <div className="space-y-2">
-              <Label htmlFor="yes" className="text-base font-semibold text-yes-foreground">
-                YES Position Statement *
-              </Label>
-              <Input
-                id="yes"
-                placeholder="e.g., Tin tưởng là lý tưởng, xác minh là thực tế."
-                value={yesOption}
-                onChange={(e) => setYesOption(e.target.value)}
-                className="border-yes"
-              />
-              <p className="text-sm text-muted-foreground">A concise statement supporting the YES side</p>
-            </div>
-
-            {/* NO Option */}
-            <div className="space-y-2">
-              <Label htmlFor="no" className="text-base font-semibold text-no-foreground">
-                NO Position Statement *
-              </Label>
-              <Input
-                id="no"
-                placeholder="e.g., Tình yêu mất ý nghĩa khi quyền riêng tư biến mất."
-                value={noOption}
-                onChange={(e) => setNoOption(e.target.value)}
-                className="border-no"
-              />
-              <p className="text-sm text-muted-foreground">A concise statement supporting the NO side</p>
-            </div>
-
             {/* Preview */}
             {title && context && (
               <div className="mt-8 p-6 bg-muted/50 rounded-xl border border-border">
@@ -116,12 +84,6 @@ const CreateCase = () => {
                 <div className="space-y-3">
                   <h4 className="text-xl font-bold text-foreground">{title}</h4>
                   <p className="text-muted-foreground">{context}</p>
-                  {yesOption && (
-                    <p className="text-yes-foreground font-medium">✓ YES: {yesOption}</p>
-                  )}
-                  {noOption && (
-                    <p className="text-no-foreground font-medium">✗ NO: {noOption}</p>
-                  )}
                 </div>
               </div>
             )}
