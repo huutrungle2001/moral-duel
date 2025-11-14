@@ -134,49 +134,6 @@ const CaseDetail = () => {
           </div>
         </Card>
 
-        {/* Vote Instructions */}
-        <div className="mb-6 p-6 bg-background/95 backdrop-blur-sm
-          border-2 border-primary/30
-          dark:border-primary/40
-          shadow-[0_4px_20px_rgba(92,189,185,0.15),0_2px_8px_rgba(0,0,0,0.05)]
-          dark:shadow-[0_6px_25px_rgba(225,179,130,0.15),0_3px_10px_rgba(225,179,130,0.1)]
-          rounded-lg">
-          <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-            <span className="text-2xl">📋</span>
-            How to Vote - Complete 3 Steps:
-          </h3>
-          <div className="space-y-2 text-sm text-foreground/80">
-            <div className="flex items-start gap-3">
-              <span className={`font-bold ${selectedSide ? 'text-primary' : 'text-muted-foreground'}`}>
-                {selectedSide ? '✅' : '1️⃣'}
-              </span>
-              <span>
-                <strong className={selectedSide ? 'text-primary' : ''}>Vote YES or NO</strong>
-                {selectedSide && <span className="text-primary ml-2">✓ Done</span>}
-              </span>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className={`font-bold ${hasLiked ? 'text-primary' : 'text-muted-foreground'}`}>
-                {hasLiked ? '✅' : '2️⃣'}
-              </span>
-              <span>
-                <strong className={hasLiked ? 'text-primary' : ''}>Like 3 arguments</strong> that you find most compelling 
-                ({votedArguments.length}/3 selected)
-                {hasLiked && <span className="text-primary ml-2">✓ Done</span>}
-              </span>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className={`font-bold ${hasWrittenArgument ? 'text-primary' : 'text-muted-foreground'}`}>
-                {hasWrittenArgument ? '✅' : '3️⃣'}
-              </span>
-              <span>
-                <strong className={hasWrittenArgument ? 'text-primary' : ''}>Write your argument</strong> explaining your vote (min 20 characters)
-                {hasWrittenArgument && <span className="text-primary ml-2">✓ Done</span>}
-              </span>
-            </div>
-          </div>
-        </div>
-
         {/* Main Duel Layout - 3 Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* LEFT: YES Side */}
