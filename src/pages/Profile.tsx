@@ -5,7 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import avatarImage from "@/assets/avatar.png";
@@ -17,7 +24,7 @@ const Profile = () => {
   const [editedProfile, setEditedProfile] = useState({
     name: "Thạc sĩ bé iu",
     email: "thacsibeiu83@gmail.com",
-    bio: "Passionate debater and critical thinker"
+    bio: "Như mây bình thản, như nước thong dong",
   });
 
   const handleConnect = () => {
@@ -42,7 +49,7 @@ const Profile = () => {
   const userProfile = {
     name: "Thạc sĩ bé iu",
     email: "thacsibeiu83@gmail.com",
-    joinDate: "January 2024",
+    joinDate: "March 2024",
     rank: "#1",
   };
 
@@ -106,9 +113,7 @@ const Profile = () => {
                     <DialogContent className="sm:max-w-[425px]">
                       <DialogHeader>
                         <DialogTitle>Edit Profile</DialogTitle>
-                        <DialogDescription>
-                          Update your personal information here.
-                        </DialogDescription>
+                        <DialogDescription>Update your personal information here.</DialogDescription>
                       </DialogHeader>
                       <div className="grid gap-4 py-4">
                         <div className="grid gap-2">
@@ -161,19 +166,19 @@ const Profile = () => {
           </h2>
 
           {!isConnected ? (
-          <div className="text-center py-8 bg-gradient-to-br from-secondary/5 to-accent/5 rounded-lg">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
-              <WalletIcon className="w-8 h-8 text-accent-foreground" />
+            <div className="text-center py-8 bg-gradient-to-br from-secondary/5 to-accent/5 rounded-lg">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
+                <WalletIcon className="w-8 h-8 text-accent-foreground" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Connect Your Wallet</h3>
               <p className="text-muted-foreground mb-6">
                 Connect your Neo wallet to view your balance, claim rewards, and participate in debates
               </p>
-            <Button
-              onClick={handleConnect}
-              className="bg-gradient-to-r from-secondary via-accent to-primary dark:from-primary dark:via-primary-glow dark:to-accent hover:opacity-90 hover:scale-105 transition-all gap-2 text-white dark:text-primary-foreground shadow-lg dark:shadow-primary/50"
-              size="lg"
-            >
+              <Button
+                onClick={handleConnect}
+                className="bg-gradient-to-r from-secondary via-accent to-primary dark:from-primary dark:via-primary-glow dark:to-accent hover:opacity-90 hover:scale-105 transition-all gap-2 text-white dark:text-primary-foreground shadow-lg dark:shadow-primary/50"
+                size="lg"
+              >
                 <WalletIcon className="w-5 h-5" />
                 Connect NeoLine Wallet
               </Button>
