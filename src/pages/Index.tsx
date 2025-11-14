@@ -162,7 +162,7 @@ const Index = () => {
                 Where reasoning confronts empathy, and every voice shapes moral truth.
               </p>
               
-              <p className="text-lg md:text-xl leading-relaxed text-foreground/80">
+              <p className="text-lg md:text-xl leading-relaxed text-foreground/80 italic font-serif">
                 Think deeper. Debate smarter. Earn your influence.
               </p>
             </div>
