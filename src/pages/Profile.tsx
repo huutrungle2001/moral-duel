@@ -61,8 +61,8 @@ const Profile = () => {
         {/* User Profile Card */}
         <Card className="p-6 mb-8 bg-gradient-to-br from-primary/5 to-accent/5">
           <div className="flex items-start gap-6">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0">
-              <User className="w-10 h-10 text-primary-foreground" />
+            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center flex-shrink-0">
+              <User className="w-10 h-10 text-accent-foreground" />
             </div>
             <div className="flex-1">
               <div className="flex items-start justify-between mb-4">
@@ -93,25 +93,25 @@ const Profile = () => {
           </h2>
 
           {!isConnected ? (
-            <div className="text-center py-8 bg-gradient-to-br from-primary/5 to-primary-glow/5 rounded-lg">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center">
-                <WalletIcon className="w-8 h-8 text-primary-foreground" />
+          <div className="text-center py-8 bg-gradient-to-br from-secondary/5 to-accent/5 rounded-lg">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
+              <WalletIcon className="w-8 h-8 text-accent-foreground" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Connect Your Wallet</h3>
               <p className="text-muted-foreground mb-6">
                 Connect your Neo wallet to view your balance, claim rewards, and participate in debates
               </p>
-              <Button
-                onClick={handleConnect}
-                className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 gap-2"
-                size="lg"
-              >
+            <Button
+              onClick={handleConnect}
+              className="bg-gradient-to-r from-secondary to-accent hover:opacity-90 gap-2"
+              size="lg"
+            >
                 <WalletIcon className="w-5 h-5" />
                 Connect NeoLine Wallet
               </Button>
               <p className="text-xs text-muted-foreground mt-4">
                 Don't have a wallet?{" "}
-                <a href="#" className="text-primary hover:underline">
+                <a href="#" className="text-accent hover:underline">
                   Install NeoLine
                 </a>
               </p>
@@ -130,7 +130,7 @@ const Profile = () => {
 
               {/* Balance Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <Card className="p-4 bg-gradient-to-br from-primary/10 to-primary-glow/10">
+                <Card className="p-4 bg-gradient-to-br from-secondary/10 to-accent/10">
                   <p className="text-sm text-muted-foreground mb-2">Available Balance</p>
                   <p className="text-3xl font-bold text-foreground mb-1">{mockStats.balance}</p>
                   <p className="text-sm text-accent">MO Tokens</p>
@@ -178,7 +178,7 @@ const Profile = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card className="p-6">
             <div className="flex items-center gap-3 mb-4">
-              <TrendingUp className="w-6 h-6 text-primary" />
+              <TrendingUp className="w-6 h-6 text-accent" />
               <h3 className="text-xl font-bold text-foreground">Statistics</h3>
             </div>
             <div className="space-y-3">
