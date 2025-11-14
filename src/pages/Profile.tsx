@@ -1,14 +1,24 @@
 import { useState } from "react";
-import { Wallet as WalletIcon, Award, TrendingUp, Download, User, Mail, Calendar } from "lucide-react";
+import { Wallet as WalletIcon, Award, TrendingUp, Download, User, Mail, Calendar, Settings } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import avatarImage from "@/assets/avatar.png";
 
 const Profile = () => {
   const [isConnected, setIsConnected] = useState(false);
   const walletAddress = "0xABC123DEF456GHI789JKL012MNO345PQR678STU901";
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [editedProfile, setEditedProfile] = useState({
+    name: "Thạc sĩ bé iu",
+    email: "thacsibeiu83@gmail.com",
+    bio: "Passionate debater and critical thinker"
+  });
 
   const handleConnect = () => {
     setIsConnected(true);
@@ -22,6 +32,11 @@ const Profile = () => {
 
   const handleClaim = () => {
     toast.success("Rewards claimed! Check your wallet.");
+  };
+
+  const handleSaveProfile = () => {
+    toast.success("Profile updated successfully!");
+    setIsEditDialogOpen(false);
   };
 
   const userProfile = {
@@ -61,17 +76,18 @@ const Profile = () => {
         {/* User Profile Card */}
         <Card className="p-6 mb-8 bg-gradient-to-br from-primary/5 to-accent/5">
           <div className="flex items-start gap-6">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center flex-shrink-0">
-              <User className="w-10 h-10 text-accent-foreground" />
+            <div className="w-24 h-24 rounded-full border-4 border-secondary/30 overflow-hidden flex-shrink-0 shadow-lg">
+              <img src={avatarImage} alt={editedProfile.name} className="w-full h-full object-cover" />
             </div>
             <div className="flex-1">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-1">{userProfile.name}</h2>
+                  <h2 className="text-2xl font-bold text-foreground mb-1">{editedProfile.name}</h2>
+                  <p className="text-sm text-muted-foreground mb-2">{editedProfile.bio}</p>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Mail className="w-4 h-4" />
-                      {userProfile.email}
+                      {editedProfile.email}
                     </span>
                     <span className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
@@ -79,7 +95,59 @@ const Profile = () => {
                     </span>
                   </div>
                 </div>
-                <Badge className="bg-accent text-accent-foreground">Rank {userProfile.rank}</Badge>
+                <div className="flex items-center gap-2">
+                  <Badge className="bg-accent text-accent-foreground">Rank {userProfile.rank}</Badge>
+                  <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" size="icon" className="rounded-full">
+                        <Settings className="w-4 h-4" />
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle>Edit Profile</DialogTitle>
+                        <DialogDescription>
+                          Update your personal information here.
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <div className="grid gap-2">
+                          <Label htmlFor="name">Name</Label>
+                          <Input
+                            id="name"
+                            value={editedProfile.name}
+                            onChange={(e) => setEditedProfile({ ...editedProfile, name: e.target.value })}
+                          />
+                        </div>
+                        <div className="grid gap-2">
+                          <Label htmlFor="email">Email</Label>
+                          <Input
+                            id="email"
+                            type="email"
+                            value={editedProfile.email}
+                            onChange={(e) => setEditedProfile({ ...editedProfile, email: e.target.value })}
+                          />
+                        </div>
+                        <div className="grid gap-2">
+                          <Label htmlFor="bio">Bio</Label>
+                          <Input
+                            id="bio"
+                            value={editedProfile.bio}
+                            onChange={(e) => setEditedProfile({ ...editedProfile, bio: e.target.value })}
+                          />
+                        </div>
+                      </div>
+                      <div className="flex justify-end gap-2">
+                        <Button variant="outline" onClick={() => setIsEditDialogOpen(false)}>
+                          Cancel
+                        </Button>
+                        <Button onClick={handleSaveProfile} className="bg-gradient-to-r from-secondary to-accent">
+                          Save Changes
+                        </Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
               </div>
             </div>
           </div>
