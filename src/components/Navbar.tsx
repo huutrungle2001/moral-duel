@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Users, Compass, Trophy, Moon, Sun, User, LogIn } from "lucide-react";
+import { Home, Users, Compass, Trophy, Moon, Sun, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import logoDark from "@/assets/logo-dark.png";
@@ -72,13 +72,6 @@ const Navbar = () => {
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
-            
-            <Link to="/auth">
-              <Button variant="gradientAccent" className="gap-2">
-                <LogIn className="w-4 h-4" />
-                <span className="hidden sm:inline">Login</span>
-              </Button>
-            </Link>
             
             <Link to="/profile">
               <Button variant="outline" className="gap-2">
