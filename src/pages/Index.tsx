@@ -53,6 +53,16 @@ const Index = () => {
               </Link>
             </div>
 
+            {/* Temporary AI Verdict Demo Link */}
+            <div className="pt-4">
+              <Link to="/ai-verdict">
+                <Button size="sm" variant="outline" className="gap-2">
+                  <Brain className="w-4 h-4" />
+                  View AI Verdict Demo
+                </Button>
+              </Link>
+            </div>
+
             <div className="pt-6 space-y-3">
               <div className="relative inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/40 dark:via-orange-950/40 dark:to-amber-950/40 border border-amber-200/60 dark:border-amber-800/60 shadow-[0_8px_30px_rgb(251,146,60,0.12)] dark:shadow-[0_8px_30px_rgb(251,146,60,0.25)] hover:shadow-[0_12px_40px_rgb(251,146,60,0.2)] dark:hover:shadow-[0_12px_40px_rgb(251,146,60,0.35)] transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm group">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-200/20 dark:via-amber-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl" />
