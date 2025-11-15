@@ -93,7 +93,7 @@ const Navbar = () => {
                   </Button>
                 </Link>
                 <Link to="/auth">
-                  <Button variant="gradientAccent" className="gap-2">
+                  <Button variant="outline" className="gap-2">
                     <UserPlus className="w-4 h-4" />
                     <span className="hidden sm:inline">Sign Up</span>
                   </Button>
