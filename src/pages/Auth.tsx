@@ -8,6 +8,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Brain, ArrowLeft, Eye, EyeOff, Mail, Lock, User, Moon, Sun } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import logoLight from "@/assets/logo-light.png";
+import logoDark from "@/assets/logo-dark.png";
 
 // Validation schemas
 const loginSchema = z.object({
@@ -153,9 +155,11 @@ const Auth = () => {
         <Card className="w-full max-w-md shadow-2xl border-border/40 backdrop-blur-xl bg-card/40">
           <CardHeader className="space-y-4 text-center pb-8">
             <div className="flex justify-center mb-2">
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 shadow-[0_0_40px_rgba(var(--primary-rgb),0.15)]">
-                <Brain className="w-10 h-10 text-primary" />
-              </div>
+              <img 
+                src={isDark ? logoDark : logoLight} 
+                alt="Moral Oracle Logo" 
+                className="h-16 w-auto"
+              />
             </div>
             <CardTitle className="text-4xl font-bold">
               <span className="bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
