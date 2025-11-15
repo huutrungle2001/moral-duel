@@ -11,6 +11,7 @@ import CreateCase from "./pages/CreateCase";
 import Community from "./pages/Community";
 import Earning from "./pages/Earning";
 import Leaderboard from "./pages/Leaderboard";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/community" element={<Community />} />
           <Route path="/earning" element={<Earning />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/auth" element={<Auth />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
