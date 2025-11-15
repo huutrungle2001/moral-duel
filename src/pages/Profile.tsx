@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Wallet as WalletIcon, Award, TrendingUp, Download, User, Mail, Calendar, Settings, LogIn } from "lucide-react";
+import { Wallet as WalletIcon, Award, TrendingUp, Download, User, Mail, Calendar, Settings } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -173,27 +172,12 @@ const Profile = () => {
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Connect Your Wallet</h3>
               <p className="text-muted-foreground mb-6">
-                Login first to connect your Neo wallet, claim rewards, and participate in debates
+                Connect your Neo wallet to view your balance, claim rewards, and participate in debates
               </p>
-              
-              <Link to="/auth">
-                <Button
-                  variant="gradientAccent"
-                  size="lg"
-                  className="gap-2 mb-4"
-                >
-                  <LogIn className="w-5 h-5" />
-                  Login to Continue
-                </Button>
-              </Link>
-
-              <div className="border-t border-border/50 my-6 mx-12" />
-
               <Button
                 onClick={handleConnect}
-                variant="outline"
+                className="bg-gradient-to-r from-secondary via-accent to-primary dark:from-primary dark:via-primary-glow dark:to-accent hover:opacity-90 hover:scale-105 transition-all gap-2 text-white dark:text-primary-foreground shadow-lg dark:shadow-primary/50"
                 size="lg"
-                className="gap-2"
               >
                 <WalletIcon className="w-5 h-5" />
                 Connect NeoLine Wallet

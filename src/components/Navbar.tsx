@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Users, Compass, Trophy, Moon, Sun, User } from "lucide-react";
+import { Home, Users, Compass, Trophy, Moon, Sun, User, LogIn, UserPlus, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import logoDark from "@/assets/logo-dark.png";
@@ -8,7 +8,7 @@ import logoLight from "@/assets/logo-light.png";
 const Navbar = () => {
   const location = useLocation();
   const [isDark, setIsDark] = useState(false);
-  const [isConnected, setIsConnected] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Set to false when implementing real auth
   const [walletAddress] = useState("0xABC...F91");
 
   useEffect(() => {
@@ -19,6 +19,11 @@ const Navbar = () => {
   const toggleTheme = () => {
     document.documentElement.classList.toggle('dark');
     setIsDark(!isDark);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    // Add actual logout logic here
   };
 
   const navItems = [
@@ -73,12 +78,39 @@ const Navbar = () => {
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
             
-            <Link to="/profile">
-              <Button variant="outline" className="gap-2">
-                <User className="w-4 h-4" />
-                <span className="hidden sm:inline">Thinking Profile</span>
-              </Button>
-            </Link>
+            {!isLoggedIn ? (
+              <>
+                <Link to="/auth">
+                  <Button variant="outline" className="gap-2">
+                    <LogIn className="w-4 h-4" />
+                    <span className="hidden sm:inline">Login</span>
+                  </Button>
+                </Link>
+                <Link to="/auth">
+                  <Button variant="gradientAccent" className="gap-2">
+                    <UserPlus className="w-4 h-4" />
+                    <span className="hidden sm:inline">Sign Up</span>
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/profile">
+                  <Button variant="outline" className="gap-2">
+                    <User className="w-4 h-4" />
+                    <span className="hidden sm:inline">Profile</span>
+                  </Button>
+                </Link>
+                <Button 
+                  variant="ghost" 
+                  className="gap-2 text-destructive hover:text-destructive hover:bg-destructive/10"
+                  onClick={handleLogout}
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span className="hidden sm:inline">Log Out</span>
+                </Button>
+              </>
+            )}
           </div>
         </div>
 
