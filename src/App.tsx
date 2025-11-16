@@ -13,6 +13,7 @@ import Earning from "./pages/Earning";
 import Leaderboard from "./pages/Leaderboard";
 import Auth from "./pages/Auth";
 import AIVerdict from "./pages/AIVerdict";
+import Presentation from "./pages/Presentation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/ai-verdict" element={<AIVerdict />} />
+          <Route path="/presentation" element={<Presentation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
